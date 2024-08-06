@@ -1,5 +1,6 @@
 package com.chason.algrithm.utils;
 
+import java.util.Arrays;
 import java.util.Map;
 
 public class ArrayUtils {
@@ -51,6 +52,12 @@ public class ArrayUtils {
             int randomValue = ((int) (Math.random() * maxValue) + 1) - ( (int) (Math.random() * maxValue) + 1);
             arr[i] = randomValue;
         }
+        return arr;
+    }
+
+    public static int[] buildSortedArray(int maxValue, int maxSize) {
+        int[] arr = buildRandomArray(maxValue, maxSize);
+        Arrays.sort(arr);
         return arr;
     }
 
