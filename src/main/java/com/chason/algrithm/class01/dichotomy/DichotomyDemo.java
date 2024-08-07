@@ -1,4 +1,4 @@
-package com.chason.algrithm.dichotomy;
+package com.chason.algrithm.class01.dichotomy;
 
 /**
  * dichotomy can solve some type of problems

@@ -1,4 +1,4 @@
-package com.chason.algrithm.dichotomy;
+package com.chason.algrithm.class01.dichotomy;
 
 import com.chason.algrithm.utils.ArrayUtils;
 

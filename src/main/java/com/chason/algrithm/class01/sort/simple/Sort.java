@@ -1,8 +1,6 @@
-package com.chason.algrithm.sort.simple;
+package com.chason.algrithm.class01.sort.simple;
 
 import com.chason.algrithm.utils.ArrayUtils;
-
-import java.util.ArrayList;
 
 /**
  * simpleSort :
