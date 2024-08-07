@@ -49,7 +49,7 @@ public class QueueByDNode {
     }
 
     public boolean isEmpty() {
-        return count == 0 ? true : false;
+        return count == 0;
     }
 
     public static void main(String[] args) {
