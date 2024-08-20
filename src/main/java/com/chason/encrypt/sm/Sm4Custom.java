@@ -1,5 +1,7 @@
 package com.chason.encrypt.sm;
 
+import java.security.SecureRandom;
+
 /**
  * Sm4
  *
@@ -41,9 +43,11 @@ public class Sm4Custom {
 
     public static void main(String[] args) {
         String plaintext = "Hello, SM4!";
-        byte[] key = new byte[16];
+        byte[] key = generateKey();
         // 使用前16字节作为密钥
-        System.arraycopy(plaintext.getBytes(), 0, key, 0, Math.min(plaintext.length(), key.length));
+        // System.arraycopy(plaintext.getBytes(), 0, key, 0, Math.min(plaintext.length(), key.length));
+
+
 
         byte[] encryptedText = sm4Encrypt(plaintext.getBytes(), key);
         System.out.println("加密后的文本 (SM4): " + bytesToHex(encryptedText));
@@ -52,8 +56,16 @@ public class Sm4Custom {
         System.out.println("解密后的文本 (SM4): " + new String(decryptedText));
     }
 
+    public static byte[] generateKey() {
+        SecureRandom random = new SecureRandom();
+        byte[] key = new byte[16]; // 16 bytes = 128 bits
+        random.nextBytes(key);
+        return key;
+    }
+
     public static byte[] sm4Encrypt(byte[] plaintext, byte[] key) {
         int[] roundKeys = keyExpansion(key);
+        System.out.println("Round key:" + roundKeys.length);
         return crypt(plaintext, roundKeys);
     }
 
