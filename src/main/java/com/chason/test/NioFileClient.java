@@ -10,7 +10,6 @@ import java.nio.file.StandardOpenOption;
 
 public class NioFileClient {
     public static void main(String[] args) {
-
         String fileName = "send.pdf";
 
         try {
@@ -36,6 +35,13 @@ public class NioFileClient {
         socketChannel.write(buffer);
         buffer.clear();
 
+        // 再发送文件大小
+        buffer.clear();
+        buffer.putLong(fileSize);
+        buffer.flip();
+        socketChannel.write(buffer);
+        buffer.clear();
+
         // 使用多个线程来并行发送文件
         int numThreads = 4;
 
@@ -43,7 +49,7 @@ public class NioFileClient {
         for (int i = 0; i < numThreads; i++) {
             long start = i * (fileSize / numThreads);
             long end = (i == numThreads - 1) ? fileSize : (i + 1) * (fileSize / numThreads);
-            threads[i] = new Thread(new FileSender(socketChannel, fileChannel, buffer, start, end));
+            threads[i] = new Thread(new FileSender(socketChannel, fileChannel, start, end));
             threads[i].start();
         }
 
@@ -66,14 +72,12 @@ public class NioFileClient {
 class FileSender implements Runnable {
     private SocketChannel socketChannel;
     private FileChannel fileChannel;
-    private ByteBuffer buffer;
     private long start;
     private long end;
 
-    public FileSender(SocketChannel socketChannel, FileChannel fileChannel, ByteBuffer buffer, long start, long end) {
+    public FileSender(SocketChannel socketChannel, FileChannel fileChannel, long start, long end) {
         this.socketChannel = socketChannel;
         this.fileChannel = fileChannel;
-        this.buffer = buffer;
         this.start = start;
         this.end = end;
     }
@@ -82,6 +86,7 @@ class FileSender implements Runnable {
     public void run() {
         try {
             fileChannel.position(start);
+            ByteBuffer buffer = ByteBuffer.allocate(4096);
             long remaining = end - start;
 
             while (remaining > 0) {

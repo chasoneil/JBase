@@ -63,6 +63,7 @@ public class NioFileServer {
         SocketChannel socketChannel = (SocketChannel) key.channel();
         ByteBuffer buffer = ByteBuffer.allocate(4096);
 
+        // 读取文件名
         int bytesRead = socketChannel.read(buffer);
         if (bytesRead == -1) {
             socketChannel.close();
@@ -76,19 +77,32 @@ public class NioFileServer {
 
         buffer.clear();
 
-        String path = "D:\\temp\\receive\\";
+        // 读取文件大小
+        // 读取文件大小
+        bytesRead = socketChannel.read(buffer);
+        if (bytesRead == -1 || buffer.remaining() < Long.BYTES) {
+            socketChannel.close();
+            key.cancel();
+            return;
+        }
 
+        buffer.flip();
+        long fileSize = buffer.getLong();
+        System.out.println("File size: " + fileSize + " bytes");
+
+        buffer.clear();
+
+        String path = "D:\\temp\\receive\\";
         FileChannel fileChannel = FileChannel.open(Paths.get(path + "received_" + fileName), StandardOpenOption.CREATE, StandardOpenOption.WRITE);
 
         // 使用多个线程来并行写入文件
         int numThreads = 4;
-        long fileSize = 0; // 需要从客户端传递过来
 
         Thread[] threads = new Thread[numThreads];
         for (int i = 0; i < numThreads; i++) {
             long start = i * (fileSize / numThreads);
             long end = (i == numThreads - 1) ? fileSize : (i + 1) * (fileSize / numThreads);
-            threads[i] = new Thread(new FileReceiver(socketChannel, fileChannel, buffer, start, end));
+            threads[i] = new Thread(new FileReceiver(socketChannel, fileChannel, start, end));
             threads[i].start();
         }
 
@@ -111,14 +125,12 @@ public class NioFileServer {
 class FileReceiver implements Runnable {
     private SocketChannel socketChannel;
     private FileChannel fileChannel;
-    private ByteBuffer buffer;
     private long start;
     private long end;
 
-    public FileReceiver(SocketChannel socketChannel, FileChannel fileChannel, ByteBuffer buffer, long start, long end) {
+    public FileReceiver(SocketChannel socketChannel, FileChannel fileChannel, long start, long end) {
         this.socketChannel = socketChannel;
         this.fileChannel = fileChannel;
-        this.buffer = buffer;
         this.start = start;
         this.end = end;
     }
@@ -127,6 +139,7 @@ class FileReceiver implements Runnable {
     public void run() {
         try {
             fileChannel.position(start);
+            ByteBuffer buffer = ByteBuffer.allocate(4096);
             long remaining = end - start;
             int bytesRead;
 
