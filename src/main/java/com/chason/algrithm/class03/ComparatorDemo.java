@@ -34,6 +34,13 @@ public class ComparatorDemo {
         }
     }
 
+    static class IdAscAgeDescComparator implements Comparator<Student> {
+        @Override
+        public int compare(Student o1, Student o2) {
+            return o1.id == o2.id ? o2.age - o1.age : o1.id - o2.id;
+        }
+    }
+
 
     public static class IDAesComparator implements Comparator<Student> {
 
