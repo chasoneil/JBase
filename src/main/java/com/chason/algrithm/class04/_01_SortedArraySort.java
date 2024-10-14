@@ -6,7 +6,6 @@ package com.chason.algrithm.class04;
  */
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -40,7 +39,6 @@ public class _01_SortedArraySort {
         }
 
         // 剩下的就是可以根据堆弹出规则排序
-
         PriorityQueue<Integer> queue = new PriorityQueue<>(); // 小根堆
         for (int i=0; i<=k; i++) {
             queue.add(arr[i]);
