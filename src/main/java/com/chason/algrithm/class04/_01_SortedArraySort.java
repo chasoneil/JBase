@@ -41,7 +41,7 @@ public class _01_SortedArraySort {
 
         // 剩下的就是可以根据堆弹出规则排序
 
-        PriorityQueue<Integer> queue = new PriorityQueue<>(new MyComparator()); // 小根堆
+        PriorityQueue<Integer> queue = new PriorityQueue<>(); // 小根堆
         for (int i=0; i<=k; i++) {
             queue.add(arr[i]);
         }
@@ -51,11 +51,9 @@ public class _01_SortedArraySort {
         int addPoint = k+1;
 
         while (!queue.isEmpty()) {
+            help[index++] = queue.poll();
             if (addPoint < arr.length) {
-                help[index++] = queue.poll();
                 queue.add(arr[addPoint++]);
-            } else {
-                help[index++] = queue.poll();
             }
         }
 
@@ -64,13 +62,5 @@ public class _01_SortedArraySort {
             arr[i] = help[i];
         }
 
-    }
-
-    // 默认小根堆，所以比较器不用写
-    static class MyComparator implements Comparator<Integer> {
-        @Override
-        public int compare(Integer o1, Integer o2) {
-            return o1 - o2;
-        }
     }
 }
