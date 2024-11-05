@@ -12,23 +12,19 @@ public class _04_RandomLinked {
 
     public static void main(String[] args) {
 
-        Node head = new Node(1);
-        Node node1 = new Node(2);
-        Node node2 = new Node(3);
-        Node node3 = new Node(4);
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
 
-        head.next = node1;
         node1.next = node2;
         node2.next = node3;
 
-        head.rand = node2;
         node1.rand = node3;
-        node2.rand = head;
-        node3.rand = node1;
+        node2.rand = node1;
 
-        Node newHead = copy(head);
+        Node newHead = copy(node1);
 
-        System.out.println(checkSameNode(head, newHead));
+        System.out.println(checkSameNode(node1, newHead));
         // System.out.println(newHead);
 
     }
@@ -36,6 +32,8 @@ public class _04_RandomLinked {
     /*
         方法1：使用hashMap
         key 老链表的节点  value 对应这个老节点我们新创建的节点
+        时间复杂度 O(N)
+        额外空间复杂度 O(N)
      */
     public static Node copy(Node head) {
 
@@ -76,6 +74,8 @@ public class _04_RandomLinked {
         然后将这个复制节点就挂在这个节点的后面，插入该节点与他的next节点中间
         完成之后，再次遍历，这次遍历以组为单位，依次遍历两个节点去设置rand指针
         最后将克隆的节点独立出来，将原来的节点恢复
+        时间复杂度 O(N)
+        空间复杂度 O(1)
      */
     public static Node copy2(Node head) {
 
@@ -108,11 +108,11 @@ public class _04_RandomLinked {
         curr = head;
         Node newHead = head.next;
         while (curr != null) {
-
-            curr.next = curr.next.next;
-            curr.next.next = curr.next.next.next;
-            curr = curr.next;
-
+            Node next = curr.next.next;
+            Node copy = curr.next;
+            curr.next = next;
+            copy.next = next != null ? next.next : null;
+            curr = next;
         }
 
         return newHead;
@@ -132,7 +132,7 @@ public class _04_RandomLinked {
                 return false;
             }
 
-            if (curr1.rand.val != curr2.rand.val) {
+            if (curr1.rand != null && curr1.rand.val != curr2.rand.val) {
                 return false;
             }
 
