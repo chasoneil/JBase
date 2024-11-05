@@ -3,7 +3,7 @@ package com.chason.algrithm.class05;
 /**
  * 请将单链表按照某个值划分成左边小 中间相等 右边大的形式
  */
-public class _03_linkedSeperate {
+public class _03_LinkedSeperate {
 
     public static void main(String[] args) {
 
@@ -142,9 +142,18 @@ public class _03_linkedSeperate {
         }
 
         // 结束之后将 小于区域的尾部串上等于区域的头 等于区域的尾部串上大于区域的头
-        smallTail.next = midHead;
-        midTail.next = bigHead;
-        return smallHead;
+        if (smallTail != null) { // 如果小于区域有值
+            smallTail.next = midHead;
+            midTail = midTail == null ? smallTail : midTail;  // 确定谁去连大于区域的头 (因为你不确定等于区域是不是为null)
+        }
+
+        if (midTail != null) {  // 如果上述if没有命中，则小于区域为空
+            midTail.next = bigHead;
+        }
+
+        // 如果上述两个都没命中，则小于大于区域都是null
+        // 如果小于区域头不为空，返回小于区域，如果为空看等于区域的头，然后看大于区域
+        return smallHead != null ? smallHead :( midHead != null ? midHead : bigHead );
     }
 
 
