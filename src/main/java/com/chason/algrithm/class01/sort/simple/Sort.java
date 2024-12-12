@@ -57,6 +57,10 @@ public class Sort {
             return;
         }
 
+        // 当 指针到 i 表示 i 个位置是当前需要处理数，那么虚拟的，已经处理的区域就是 i-1
+        // 也就是说 0 - i-1 已经有序了
+        // 第i 个数和第 i-1个数做对比，可以理解为向前看，如果前面比我小，那我继续向前看，直到看到最前的位置，
+        // 或者前面已经不比我小了，那么就不看了
         for (int i=0; i<arr.length; i++) {
             for (int j=i-1; j>=0 && arr[j] > arr[j+1]; j--) {
                 ArrayUtils.swap(arr, j, j+1);
@@ -90,8 +94,5 @@ public class Sort {
         SortChecker.start();
 
     }
-
-
-
 
 }

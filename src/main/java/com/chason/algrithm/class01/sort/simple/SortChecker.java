@@ -1,5 +1,7 @@
 package com.chason.algrithm.class01.sort.simple;
 
+import com.chason.algrithm.class03.FastSort;
+import com.chason.algrithm.class03.MergeSort;
 import com.chason.algrithm.utils.ArrayUtils;
 
 import java.util.Arrays;
@@ -23,7 +25,12 @@ public class SortChecker {
             //Sort.insertSort(arr);
 
             //Sort.bubbleSort(arr);
-            Sort.selectSort(arr);
+            //Sort.selectSort(arr);
+
+            // MergeSort.sort1(arr);
+            // MergeSort.sort2(arr);
+
+            FastSort.sort(arr);
             Arrays.sort(arr1);
 
             if (!ArrayUtils.isEqual(arr, arr1)) {

@@ -81,9 +81,6 @@ public class DichotomyDemo {
         return L;
     }
 
-
-
-
     public static boolean isExistBase (int[] arr, int target) {
 
         if (arr == null || arr.length < 1) {
