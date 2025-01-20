@@ -3,11 +3,11 @@ package com.chason.algrithm.class06;
 
 public class TreeNode {
 
-    int val;
+    public int val;
 
-    TreeNode left;
+    public TreeNode left;
 
-    TreeNode right;
+    public TreeNode right;
 
     public TreeNode (int val) {
         this.val = val;
@@ -30,6 +30,18 @@ public class TreeNode {
 
         node3.left = node6;
         node3.right = node7;
+
+        return node1;
+    }
+
+    public static TreeNode buildSerializeTreeNode() {
+
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3);
+
+        node1.right = node2;
+        node2.left = node3;
 
         return node1;
     }
