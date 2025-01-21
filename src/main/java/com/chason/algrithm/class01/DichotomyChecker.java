@@ -1,4 +1,4 @@
-package com.chason.algrithm.class01.dichotomy;
+package com.chason.algrithm.class01;
 
 import com.chason.algrithm.utils.ArrayUtils;
 
@@ -17,7 +17,7 @@ public class DichotomyChecker {
             int randomTarget = ((int)(Math.random() * maxValue) + 1) - ((int)(Math.random() * maxValue) + 1);
             int[] arr = ArrayUtils.buildSortedArray(maxValue, maxSize);
 
-            if (DichotomyDemo.isExist(arr, randomTarget) != DichotomyDemo.isExistBase(arr, randomTarget)) {
+            if (_02_Dichotomy.isExist(arr, randomTarget) != _02_Dichotomy.isExistBase(arr, randomTarget)) {
                 isOK = false;
                 break;
             }
@@ -39,7 +39,7 @@ public class DichotomyChecker {
             int randomTarget = ((int)(Math.random() * maxValue) + 1) - ((int)(Math.random() * maxValue) + 1);
             int[] arr = ArrayUtils.buildSortedArray(maxValue, maxSize);
 
-            if (DichotomyDemo.nearestLeft(arr, randomTarget) != DichotomyDemo.nearestLeftBase(arr, randomTarget)) {
+            if (_02_Dichotomy.nearestLeft(arr, randomTarget) != _02_Dichotomy.nearestLeftBase(arr, randomTarget)) {
                 isOK = false;
 
                 ArrayUtils.print(arr);

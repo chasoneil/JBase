@@ -1,4 +1,4 @@
-package com.chason.algrithm.class01.dichotomy;
+package com.chason.algrithm.class01;
 
 /**
  * dichotomy can solve some type of problems
@@ -7,7 +7,7 @@ package com.chason.algrithm.class01.dichotomy;
  * 2. check nearest left position >= target
  * 3. check nearest right position <= target
  */
-public class DichotomyDemo {
+public class _02_Dichotomy {
 
     public static boolean isExist (int[] arr, int target) {
         if (arr == null || arr.length < 1) {
