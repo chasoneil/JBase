@@ -59,8 +59,7 @@ public class _03_NoRecursiveIBT {
     /*
         1. 使用栈
         2. 从头节点开始，压入一个节点，将这个节点的整条左边界全部进栈
-        3. 从栈中弹出节点打印，压入当前弹出节点的右孩子
-        4. 重复2 3
+        3. 左边界都进栈之后，从栈中弹出节点打印，处理当前弹出节点的右孩子
      */
     public static void mid(TreeNode head) {
 
