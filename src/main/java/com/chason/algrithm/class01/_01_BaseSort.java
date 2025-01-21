@@ -1,4 +1,4 @@
-package com.chason.algrithm.class01.sort.simple;
+package com.chason.algrithm.class01;
 
 import com.chason.algrithm.utils.ArrayUtils;
 
@@ -9,7 +9,7 @@ import com.chason.algrithm.utils.ArrayUtils;
  * 3. bubble sort
  *
  */
-public class Sort {
+public class _01_BaseSort {
 
 
     public static void selectSort(int[] arr) {
