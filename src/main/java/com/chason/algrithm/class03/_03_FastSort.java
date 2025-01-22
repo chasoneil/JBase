@@ -2,7 +2,7 @@ package com.chason.algrithm.class03;
 
 import com.chason.algrithm.utils.ArrayUtils;
 
-public class FastSort {
+public class _03_FastSort {
 
 
     public static void sort(int[] arr) {

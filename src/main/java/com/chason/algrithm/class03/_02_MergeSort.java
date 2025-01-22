@@ -1,6 +1,6 @@
 package com.chason.algrithm.class03;
 
-public class MergeSort {
+public class _02_MergeSort {
 
 
     public static void sort1(int[] arr) {

@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.TreeMap;
 
-public class ComparatorDemo {
+public class _01_ComparatorDemo {
 
     public static class Student {
 
