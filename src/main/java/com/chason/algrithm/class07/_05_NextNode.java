@@ -21,9 +21,7 @@ public class _05_NextNode {
 
 
     public static void main(String[] args) {
-
         buildTreeNodeAndTest();
-
     }
 
     /*
@@ -68,6 +66,39 @@ public class _05_NextNode {
         return null;
     }
 
+    /*
+    时间复杂度O(K) K是该节点到root节点的距离
+    思路： 中序遍历中，有两种情况：
+    1. 对于任意一个节点node, 如果他有右树，那么他的后继节点一定是右树上的最左孩子
+    解释： 因为在中序遍历中 左 node 右 如果他有右数，那么接下来打印的就是右树的最左节点
+    2. 如果任意节点node, 如果他没有右树，那么就往上找父节点，如果他是父节点的右节点继续往上找
+    直到找到一个父节点，他是父节点的左树，那么这个父节点就是他的后继，如果找到root还没有达到这个条件
+    那么证明这个node是整棵树的最右节点，那他没有后继。
+    解释：上述找法，其实就是找某个左树的最右，如果我是某个左树的最右，那么接下来就应该打印这棵树的头节点了
+    只有这两种情况。
+     */
+    public static TreeNode getNext(TreeNode node) {
+
+        if (node == null) {
+            return null;
+        }
+
+        TreeNode res = node;
+        if (res.right != null) {
+            res = res.right;
+            while (res.left != null) {
+                res = res.left;
+            }
+        } else {  // 该节点没有右树
+            res = node.parent;
+            while (res != null && res.right == node) {
+                res = res.parent;
+            }
+        }
+
+        return res;
+    }
+
     private static void buildTreeNodeAndTest() {
 
         TreeNode node1 = new TreeNode(1);
@@ -91,7 +122,8 @@ public class _05_NextNode {
         node6.parent = node3;
         node7.parent = node3;
 
-        TreeNode node = getNextBase(node3);
+        //TreeNode node = getNextBase(node3);
+        TreeNode node = getNext(node3);
         System.out.println(node.val);
     }
 
