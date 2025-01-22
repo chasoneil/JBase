@@ -1,11 +1,11 @@
-package com.chason.algrithm.class02.stack;
+package com.chason.algrithm.class02;
 
 import java.util.Stack;
 
 /**
  * you can get stack min number by O(1)
  */
-public class MinStack {
+public class _07_MinStack {
 
     private Stack data = new Stack();
 
@@ -38,7 +38,7 @@ public class MinStack {
 
     public static void main(String[] args) {
 
-        MinStack stack = new MinStack();
+        _07_MinStack stack = new _07_MinStack();
 
         stack.push(3);
         System.out.println(stack.getMin());

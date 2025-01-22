@@ -1,8 +1,8 @@
-package com.chason.algrithm.class02.stack;
+package com.chason.algrithm.class02;
 
 import com.chason.algrithm.class02.base.DNode;
 
-public class StackByDNode {
+public class _06_StackByDNode {
 
     DNode head;
 
@@ -55,7 +55,7 @@ public class StackByDNode {
 
     public static void main(String[] args) {
 
-        StackByDNode stack = new StackByDNode();
+        _06_StackByDNode stack = new _06_StackByDNode();
 
         stack.push(1);
         stack.push(2);

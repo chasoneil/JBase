@@ -1,4 +1,4 @@
-package com.chason.algrithm.class02.linked;
+package com.chason.algrithm.class02;
 
 import com.chason.algrithm.class02.base.Node;
 import com.chason.algrithm.utils.LinkedUtils;
@@ -6,8 +6,7 @@ import com.chason.algrithm.utils.LinkedUtils;
 /**
  * delete target node from single linked list
  */
-public class DeleteNode {
-
+public class _01_DeleteNode {
 
     public static Node deleteNode(Node head, int target) {
 

@@ -1,6 +1,6 @@
-package com.chason.algrithm.class02.queue;
+package com.chason.algrithm.class02;
 
-public class QueueByArray {
+public class _03_QueueByArray {
 
     private int[] arr;
 
@@ -14,7 +14,7 @@ public class QueueByArray {
 
     private int popIdx;
 
-    public QueueByArray(int capacity) {
+    public _03_QueueByArray(int capacity) {
         capacity = capacity > LIMIT ? capacity : LIMIT;
         arr = new int[capacity];
         this.capacity = capacity;
@@ -63,7 +63,7 @@ public class QueueByArray {
     public static void main(String[] args) {
 
 
-        QueueByArray queue = new QueueByArray(3);
+        _03_QueueByArray queue = new _03_QueueByArray(3);
         queue.offer(1);
         queue.offer(2);
         queue.offer(3);

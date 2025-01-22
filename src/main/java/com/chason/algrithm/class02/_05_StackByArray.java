@@ -1,6 +1,6 @@
-package com.chason.algrithm.class02.stack;
+package com.chason.algrithm.class02;
 
-public class StackByArray {
+public class _05_StackByArray {
 
     private int[] arr;
 
@@ -12,7 +12,7 @@ public class StackByArray {
 
     private int index;
 
-    public StackByArray(int capacity) {
+    public _05_StackByArray(int capacity) {
         capacity = capacity > LIMIT ? capacity : LIMIT;
         arr = new int[capacity];
         this.capacity = capacity;
@@ -57,7 +57,7 @@ public class StackByArray {
 
     public static void main(String[] args) {
 
-        StackByArray stack = new StackByArray(5);
+        _05_StackByArray stack = new _05_StackByArray(5);
         stack.push(1);
         stack.push(2);
         stack.push(3);

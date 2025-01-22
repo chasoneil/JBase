@@ -1,4 +1,4 @@
-package com.chason.algrithm.class02.linked;
+package com.chason.algrithm.class02;
 
 import com.chason.algrithm.class02.base.DNode;
 import com.chason.algrithm.class02.base.Node;
@@ -7,7 +7,7 @@ import com.chason.algrithm.utils.LinkedUtils;
 /**
  *  reverse linked list
  */
-public class ReverseLinked {
+public class _02_ReverseLinked {
 
     /**
      * reverse single linked list

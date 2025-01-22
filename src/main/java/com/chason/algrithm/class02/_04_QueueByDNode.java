@@ -1,8 +1,8 @@
-package com.chason.algrithm.class02.queue;
+package com.chason.algrithm.class02;
 
 import com.chason.algrithm.class02.base.DNode;
 
-public class QueueByDNode {
+public class _04_QueueByDNode {
 
     DNode head;
 
@@ -54,7 +54,7 @@ public class QueueByDNode {
 
     public static void main(String[] args) {
 
-        QueueByDNode queue = new QueueByDNode();
+        _04_QueueByDNode queue = new _04_QueueByDNode();
         queue.offer(1);
         queue.offer(2);
         queue.offer(3);
