@@ -13,7 +13,7 @@ import java.util.Stack;
  * 注意：经典搜索二叉树中的值不能重复
  *
  */
-public class _09_SearchBinaryTree {
+public class _09_IsBinarySearchTree {
 
     /*
     方法1： 中序遍历一下，值一直在上升就是搜索二叉树

@@ -10,7 +10,7 @@ import java.util.Queue;
  * 完全二叉树：
  * 每层都是满的，或者处于从左往右依次变满的状态
  */
-public class _07_IsFullBinaryTree {
+public class _07_IsBinaryCompleteTree {
 
     public static void main(String[] args) {
 
