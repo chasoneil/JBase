@@ -16,6 +16,24 @@ public class _12_MaxBinarySearchChildTree {
         return process(head).maxChildBST;
     }
 
+    /*
+       以x为头节点分为两种情况：
+       1. 这棵树和x相关 （意思整棵树都是搜索二叉树）
+          满足：
+          （1）左树是不是搜索二叉树
+          （2）右树是不是索索二叉树
+          （3）左树的最大值 < x.val
+          （4）右树的最小值是不是 > x.val
+          （5）整颗数的size 【需要左树的size ,需要右树的size】
+       2. 这棵树和x不相关 (要么就是左树中的搜索二叉树，要么就是右树中的搜索二叉树)
+          （1）左树是不是搜索二叉树
+          （2）右树是不是搜索二叉树
+          （3）以x为头节点的话，左树的size
+          （4）以x为头节点的话，右树的size
+
+       整理info : 是不是搜索二叉树 ; max ; min ; 最大搜索二叉子树的size ; 自己的size
+       如果 size == 最大搜索二叉子树的size 则是搜索二叉树
+     */
     public static TreeInfo process (TreeNode head) {
 
         if (head == null) {

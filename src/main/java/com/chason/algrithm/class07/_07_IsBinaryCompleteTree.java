@@ -69,6 +69,71 @@ public class _07_IsBinaryCompleteTree {
         return true;
     }
 
+    /*
+     1. 以x为头节点的树，如果左树满，右树满 且高度相同 他是完全二叉树 (满树)
+     2. 以x为头节点的树，如果左树是完全，右树是满，左树比右树高度 > 1
+     3. 左树满，右树满 左树高度 = 右树高度 + 1
+     4. 左树满，右树是完全二叉树， 高度相同
+     需要：
+          高度
+          满没满
+          是不是完全
+     */
+    public static boolean isCompleteTree(TreeNode head) {
+        if (head == null) {
+            return true;
+        }
+
+        return process(head).isComplete;
+    }
+
+    public static TreeInfo process(TreeNode head) {
+
+        if (head == null) {
+            return new TreeInfo(0, true, true);
+        }
+
+        TreeInfo leftInfo = process(head.left);
+        TreeInfo rightInfo = process(head.right);
+
+        int height = 0;
+        boolean isFull = false;
+        boolean isComplete = false;
+
+        height = Math.max(leftInfo.height, rightInfo.height) + 1;
+
+        if (leftInfo.isFull && rightInfo.isFull && leftInfo.height == rightInfo.height) {
+            isFull = true;
+            isComplete = true;
+        }
+
+        if (leftInfo.isComplete && rightInfo.isFull && leftInfo.height == rightInfo.height + 1) {
+            isComplete = true;
+        }
+
+        if (leftInfo.isFull && rightInfo.isFull && leftInfo.height == rightInfo.height + 1) {
+            isComplete = true;
+        }
+
+        if (leftInfo.isFull && rightInfo.isComplete && leftInfo.height == rightInfo.height) {
+            isComplete = true;
+        }
+
+        return new TreeInfo(height, isFull, isComplete);
+    }
+
+    static class TreeInfo {
+        public int height;
+        public boolean isFull;
+        public boolean isComplete;
+
+        public TreeInfo (int h, boolean f, boolean c) {
+            height = h;
+            isFull = f;
+            isComplete = c;
+        }
+    }
+
 
     private static TreeNode buildTestTree() {
 
