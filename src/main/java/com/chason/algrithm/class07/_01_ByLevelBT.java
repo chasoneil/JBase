@@ -10,7 +10,7 @@ import java.util.Queue;
  * 宽度优先遍历使用队列
  *
  */
-public class _01_byLevelIBT {
+public class _01_ByLevelBT {
 
     public static void main(String[] args) {
 

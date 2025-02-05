@@ -12,7 +12,7 @@ import java.util.Queue;
  *
  *
  */
-public class _02_serializeIBT {
+public class _02_SerializeBT {
 
     private static int index = 0;
 
