@@ -1,4 +1,4 @@
-package com.chason.algrithm.class07;
+package com.chason.algrithm.class08;
 
 import com.chason.algrithm.class06.TreeNode;
 
@@ -7,7 +7,7 @@ import com.chason.algrithm.class06.TreeNode;
  *
  * 暂无对数器
  */
-public class _12_MaxBinarySearchChildTree {
+public class _08_MaxBinarySearchChildTree {
 
     public static int getMaxBinarySearchChildTreeSize (TreeNode head) {
         if (head == null) {

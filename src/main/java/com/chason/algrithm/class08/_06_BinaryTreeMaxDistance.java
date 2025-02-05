@@ -1,4 +1,4 @@
-package com.chason.algrithm.class07;
+package com.chason.algrithm.class08;
 
 import com.chason.algrithm.class06.TreeNode;
 
@@ -17,7 +17,7 @@ import com.chason.algrithm.class06.TreeNode;
  *
  * 从节点6 到节点2的距离就是 6 > 3 > 1 > 2 那么距离就是4
  */
-public class _10_BinaryTreeMaxDistance {
+public class _06_BinaryTreeMaxDistance {
 
     /*
     分析： 最大距离分为和Node有关或者和Node无关

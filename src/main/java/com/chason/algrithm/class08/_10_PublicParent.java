@@ -1,4 +1,4 @@
-package com.chason.algrithm.class07;
+package com.chason.algrithm.class08;
 
 import com.chason.algrithm.class06.TreeNode;
 
@@ -9,7 +9,7 @@ import java.util.*;
  * 给定其他的两个节点 a b
  * 返回 a 和 b的最低公共祖先
  */
-public class _14_PublicParent {
+public class _10_PublicParent {
 
     /*
     方法一： 遍历整颗树，使用一个Map，将这棵树的每个节点和他的父节点存下来

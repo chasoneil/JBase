@@ -1,4 +1,4 @@
-package com.chason.algrithm.class07;
+package com.chason.algrithm.class08;
 
 
 import java.util.Stack;
@@ -7,7 +7,7 @@ import java.util.Stack;
  * 返回某个二叉树的后继节点,二叉树的结构如代码所示
  * 后继节点： 一颗二叉树中序遍历中，一个节点的下一个节点就是这个节点的后继节点
  */
-public class _05_NextNode {
+public class _01_NextNode {
 
     static class TreeNode {
         int val;

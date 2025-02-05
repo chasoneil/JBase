@@ -1,4 +1,4 @@
-package com.chason.algrithm.class07;
+package com.chason.algrithm.class08;
 
 import com.chason.algrithm.class06.TreeNode;
 
@@ -7,7 +7,7 @@ import com.chason.algrithm.class06.TreeNode;
  * 平衡二叉树：
  * 在一个二叉树中，左右子树相差的高度的绝对值 < 1 每颗子树都如此
  */
-public class _08_IsBinaryBalanceTree {
+public class _04_IsBinaryBalanceTree {
 
     /**
      * 思路： 根据平衡二叉树的概念

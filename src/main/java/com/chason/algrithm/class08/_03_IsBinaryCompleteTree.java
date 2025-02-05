@@ -1,4 +1,4 @@
-package com.chason.algrithm.class07;
+package com.chason.algrithm.class08;
 
 import com.chason.algrithm.class06.TreeNode;
 
@@ -10,7 +10,7 @@ import java.util.Queue;
  * 完全二叉树：
  * 每层都是满的，或者处于从左往右依次变满的状态
  */
-public class _07_IsBinaryCompleteTree {
+public class _03_IsBinaryCompleteTree {
 
     public static void main(String[] args) {
 

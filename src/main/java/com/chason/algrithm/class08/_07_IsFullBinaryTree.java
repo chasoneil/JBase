@@ -1,4 +1,4 @@
-package com.chason.algrithm.class07;
+package com.chason.algrithm.class08;
 
 import com.chason.algrithm.class06.TreeNode;
 
@@ -8,7 +8,7 @@ import java.util.Queue;
 /**
  * 判断一颗树是不是满二叉树
  */
-public class _11_IsFullBinaryTree {
+public class _07_IsFullBinaryTree {
 
     /*
     判断一颗树是不是满二叉树：
