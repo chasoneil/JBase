@@ -9,12 +9,10 @@ import com.chason.algorithm.class06.TreeNode;
  */
 public class _04_IsBinaryBalanceTree {
 
-    /**
+    /*
      * 思路： 根据平衡二叉树的概念
      * 如果一颗树的左树是平衡 右树是平衡，且左树的高度 - 右树的高度的绝对值 < 2他就是平衡二叉树
      * 那么需要的条件是 左树是不是平衡 且左树的高度 右树是不是平衡且高度
-     * @param head
-     * @return
      */
     public static boolean isBalanceTree(TreeNode head) {
 
@@ -56,10 +54,7 @@ public class _04_IsBinaryBalanceTree {
         return new TreeInfo(isBalance, height);
     }
 
-    /*
-    使用一个类用来存放我们需要的信息
-     */
-    static class TreeInfo {
+    public static class TreeInfo {
         public boolean isBalance;
         public int height;
         public TreeInfo(boolean b, int h) {
@@ -80,7 +75,7 @@ public class _04_IsBinaryBalanceTree {
     }
 
     private static TreeNode createTree(int level, int maxLevel, int maxValue) {
-        if (level > maxLevel) {
+        if (level > maxLevel || Math.random() < 0.3) {
             return null;
         }
         TreeNode head = new TreeNode((int)(Math.random() * maxValue));

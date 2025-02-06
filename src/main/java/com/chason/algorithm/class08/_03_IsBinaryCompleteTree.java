@@ -12,23 +12,14 @@ import java.util.Queue;
  */
 public class _03_IsBinaryCompleteTree {
 
-    public static void main(String[] args) {
-
-        TreeNode head = buildTestTree();
-        System.out.println(isFullBT(head));
-
-    }
-
     /**
      * 思路： 按照二叉树的按层遍历
      * 1. 如果一个节点他只有右孩子，没有左孩子，他肯定不是完全二叉树
      * 2. 如果当你遍历到一个节点的时候，他的子孩子不完整（没有子，或者只有一个左）那么他后面的节点都是叶子节点
      * 叶子（不能有子节点了）
      * 3. 如果满足上述要求遍历完成，则是完全二叉树
-     *
-     * @return
      */
-    public static boolean isFullBT(TreeNode head) {
+    public static boolean isCompleteBT1(TreeNode head) {
 
         if (head == null) {
             return true;
@@ -37,24 +28,27 @@ public class _03_IsBinaryCompleteTree {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(head);
 
-        TreeNode tmp = null;
+        TreeNode tmp;
         boolean leaf = false;
         while (!queue.isEmpty()) {
 
             tmp = queue.poll();
 
+            // 发现了有不完整的子节点的节点，那么后面都要是叶子节点
             if (leaf) {
                 if (tmp.left != null || tmp.right != null) {
                     return false;
                 }
             }
 
-            if (tmp.right != null && tmp.left == null) { // 命中 1
+            // 命中条件1
+            if (tmp.right != null && tmp.left == null) {
                 return false;
             }
 
+            // 命中 2 后面的所有节点都只能是叶子节点
             if (!(tmp.left != null && tmp.right != null)) {
-                leaf = true;    // 命中 2 后面的所有节点都只能是叶子节点
+                leaf = true;
             }
 
             if (tmp.left != null) {
@@ -79,7 +73,7 @@ public class _03_IsBinaryCompleteTree {
           满没满
           是不是完全
      */
-    public static boolean isCompleteTree(TreeNode head) {
+    public static boolean isCompleteBT2(TreeNode head) {
         if (head == null) {
             return true;
         }
@@ -122,7 +116,7 @@ public class _03_IsBinaryCompleteTree {
         return new TreeInfo(height, isFull, isComplete);
     }
 
-    static class TreeInfo {
+    public static class TreeInfo {
         public int height;
         public boolean isFull;
         public boolean isComplete;
@@ -134,22 +128,42 @@ public class _03_IsBinaryCompleteTree {
         }
     }
 
+    // ---------- 对数器 --------------
+    public static void main(String[] args) {
 
-    private static TreeNode buildTestTree() {
+        int maxLevel = 5;
+        int maxValue = 100;
+        int testTime = 100000;
+        boolean suc = true;
 
-        TreeNode node1 = new TreeNode(1);
-        TreeNode node2 = new TreeNode(2);
-        TreeNode node3 = new TreeNode(3);
-        TreeNode node4 = new TreeNode(4);
-        TreeNode node5 = new TreeNode(5);
+        for (int i=0; i<testTime; i++) {
+            TreeNode head = createRTree(maxLevel, maxValue);
+            if (isCompleteBT1(head) != isCompleteBT2(head)) {
+                suc = false;
+                break;
+            }
+        }
 
-        node1.left = node2;
-        node1.right = node3;
-        node3.left = node4;
-        node2.right = node5;
-
-        return node1;
+        System.out.println(suc ? "Pass" : "Failed");
     }
+
+    public static TreeNode createRTree(int maxLevel, int maxValue) {
+        return createTree(1, maxLevel, maxValue);
+    }
+
+    public static TreeNode createTree(int cl, int ml, int mv) {
+
+        // Math.random < 0.3 是构建空树
+        if (cl > ml || Math.random() < 0.3) {
+            return null;
+        }
+
+        TreeNode head = new TreeNode((int)(Math.random() * mv));
+        head.left = createTree(cl+1, ml, mv);
+        head.right = createTree(cl+1, ml, mv);
+        return head;
+    }
+
 
 
 }

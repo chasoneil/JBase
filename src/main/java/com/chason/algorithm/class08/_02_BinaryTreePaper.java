@@ -16,7 +16,6 @@ public class _02_BinaryTreePaper {
      1. 头节点是凹
      2. 所有左子树的都节点都是凹
      3. 所有右子树的头节点都是凸
-
      参数是对折的次数 N
      */
     public static void printLine(int N) {

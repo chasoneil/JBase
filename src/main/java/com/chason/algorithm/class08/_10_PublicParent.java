@@ -73,7 +73,7 @@ public class _10_PublicParent {
     和x不相关
     1. 公共节点在左树
     2. 公共节点在右树
-
+    3. 公共节点在上层（父节点）
     总结： 能不能找到a; 能不能找到b, 答案节点Node
      */
     public static TreeNode getPublicRoot2(TreeNode head, TreeNode a, TreeNode b) {
