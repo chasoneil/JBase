@@ -85,11 +85,44 @@ public class _01_MinSortString {
     // -------------- 对数器 ---------------
     public static void main(String[] args) {
 
-        String[] strs = new String[] {"b", "ba"};
+        int maxArrLen = 6;
+        int maxStrLen = 5;
+        int testTimes = 10000;
+        boolean suc = true;
+        for (int i = 0; i < testTimes; i++) {
+            String[] arr1 = createRandomStringArray(maxArrLen, maxStrLen);
+            String[] arr2 = copyArray(arr1);
+            if (!getMinSort1(arr1).equals(getMinSort2(arr2))) {
+                suc = false;
+                break;
+            }
+        }
+        System.out.println(suc ? "Pass!" : "Failed!");
+    }
 
-        String result = getMinSort2(strs);
-        System.out.println(result);
+    private static String[] createRandomStringArray(int maxArrLen, int maxStrLen) {
+        String[] result = new String[(int) (Math.random() * maxArrLen) + 1];
+        for (int i=0; i<result.length; i++) {
+            result[i] = createRandomString(maxStrLen);
+        }
+        return result;
+    }
 
+    private static String createRandomString (int maxStrLen) {
+        char[] help = new char[(int) (Math.random() * maxStrLen) + 1];
+        for (int i=0; i<help.length; i++) {
+            int value = (int) (Math.random() * 5);
+            help[i] = (Math.random() <= 0.5) ? (char) (65 + value) : (char) (97 + value);
+        }
+        return String.valueOf(help);
+    }
+
+    private static String[] copyArray(String[] arr) {
+        String[] ans = new String[arr.length];
+        for (int i=0; i<arr.length; i++) {
+            ans[i] = arr[i];
+        }
+        return ans;
     }
 
 
