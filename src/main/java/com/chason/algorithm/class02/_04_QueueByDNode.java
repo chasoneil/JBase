@@ -4,9 +4,9 @@ import com.chason.algorithm.class02.base.DNode;
 
 public class _04_QueueByDNode {
 
-    DNode head;
+    DNode<Integer> head;
 
-    DNode tail;
+    DNode<Integer> tail;
 
     int count;
 
@@ -24,11 +24,11 @@ public class _04_QueueByDNode {
     public void offer(int value) {
 
         if (head == null) {
-            head = tail = new DNode(value);
+            head = tail = new DNode<>(value);
             head.prev = null;
             head.next = null;
         } else {
-            DNode node = new DNode(value);
+            DNode<Integer> node = new DNode<>(value);
             node.prev = tail;
             tail.next = node;
             tail = node;
@@ -41,7 +41,7 @@ public class _04_QueueByDNode {
             throw new RuntimeException("Queue is empty");
         }
 
-        return (Integer) head.value;
+        return head.value;
     }
 
     public int size() {

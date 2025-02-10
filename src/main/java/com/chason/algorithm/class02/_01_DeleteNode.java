@@ -8,23 +8,23 @@ import com.chason.algorithm.utils.LinkedUtils;
  */
 public class _01_DeleteNode {
 
-    public static Node deleteNode(Node head, int target) {
+    public static Node<Integer> deleteNode(Node<Integer> head, int target) {
 
         if (head == null) {
             return null;
         }
 
-        Node newHead = head;
+        Node<Integer> newHead = head;
 
-        while ((Integer) newHead.value == target) {
+        while (newHead.value == target) {
             newHead = newHead.next;
         }
 
-        Node prev = newHead;
-        Node curr = newHead;
+        Node<Integer> prev = newHead;
+        Node<Integer> curr = newHead;
 
         while (curr != null) {
-            if ((Integer)curr.value == target) {
+            if (curr.value == target) {
                 prev.next = curr.next;
             } else {
                 prev = curr;
@@ -37,7 +37,7 @@ public class _01_DeleteNode {
 
     public static void main(String[] args) {
 
-        Node head = LinkedUtils.buildRandomSingle(10, 10);
+        Node<Integer> head = LinkedUtils.buildRandomSingle(10, 10);
         int target = -5;
 
         LinkedUtils.print(head, null);

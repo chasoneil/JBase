@@ -8,9 +8,9 @@ public class DNode<T> {
 
     public T value;
 
-    public DNode next;
+    public DNode<T> next;
 
-    public DNode prev;
+    public DNode<T> prev;
 
     public DNode(T data) {
         this.value = data;
