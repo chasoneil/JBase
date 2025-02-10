@@ -47,4 +47,100 @@ public class _03_LowestGoldCut {
     }
 
 
+    public static int lowestCut2 (int[] arr) {
+
+        if (arr == null || arr.length < 2) {
+            return 0;
+        }
+
+        return process(arr, 0);
+    }
+
+    /*
+        arr 是剩余的数组数量等待合并
+        done 已经切割的代价
+     */
+    public static int process(int[] arr, int done) {
+
+        int result = Integer.MAX_VALUE;
+        // 如果最后数组中合并的只剩一个了，结束
+        if (arr.length == 1) {
+            return done;
+        }
+
+        for (int i=0; i<arr.length; i++) {
+            for (int j=i+1; j<arr.length; j++) {
+                result = Math.min(process(mergeArr(arr, i, j), done + arr[i] + arr[j]), result);
+            }
+        }
+
+        return result;
+    }
+
+    /*
+    将arr i 和 j 位置的数合并成一个数，然后返回合并后的数组
+     */
+    private static int[] mergeArr(int[] arr, int i, int j) {
+
+        int[] help = new int[arr.length - 1];
+
+        int sum = 0;
+        int index = 0;
+        for (int k=0; k<arr.length; k++) {
+            if (k != i && k != j) {
+                help[index++] = arr[k];
+            } else {
+                sum += arr[k];
+            }
+        }
+
+        help[index] = sum;
+        return help;
+    }
+
+    // =========  对数器 =============
+
+    public static void main(String[] args) {
+
+        int maxSize = 6;
+        int maxValue = 100;
+        int testTime = 100000;
+
+        boolean suc = true;
+        for (int i=0; i<testTime; i++) {
+            int[] arr1 = createRandomArr(maxSize, maxValue);
+            int[] arr2 = copyArr(arr1);
+            if (lowestCut1(arr1) != lowestCut2(arr2)) {
+                suc = false;
+                break;
+            }
+        }
+
+        System.out.println(suc ? "Pass!" : "Failed!");
+    }
+
+
+    private static int[] createRandomArr(int maxSize, int maxValue) {
+        int rSize = (int) (Math.random() * maxSize) + 1;
+        int[] result = new int[rSize];
+
+        for (int i=0; i<rSize; i++) {
+            result[i] = (int) (Math.random() * maxValue) + 1;
+        }
+        return result;
+    }
+
+    private static int[] copyArr(int[] arr) {
+
+        if (arr.length < 1) {
+            return new int[0];
+        }
+
+        int[] help = new int[arr.length];
+        for (int i=0; i<arr.length; i++) {
+            help[i] = arr[i];
+        }
+
+        return help;
+    }
 }
