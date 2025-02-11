@@ -23,14 +23,36 @@ public class UnionSetArray<T> {
      数组中的元素不能重复
      */
     public UnionSetArray (int N) {
-
         parent = new int[N];
         size = new int[N];
         help = new int[N];
         for (int i=0; i<N; i++) {
             parent[i] = i;
+            size[i] = 1;
         }
+        sets = N;
+    }
 
+    public int root(int n) {
+
+    }
+
+    public void union(int a, int b) {
+        int aRoot = root(a);
+        int bRoot = root(b);
+        if (aRoot != bRoot) {
+            int aSize = size[aRoot];
+            int bSize = size[bRoot];
+            int big = aSize > bSize ? aSize : bSize;
+            int small = big == aSize ? bSize : aSize;
+            parent[small] = big;
+            size[big] = aSize + bSize;
+            size[small] = 0;
+        }
+    }
+
+    public boolean isSameSet(int a, int b) {
+        return root(a) == root(b);
     }
 
 
