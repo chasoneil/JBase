@@ -1,6 +1,9 @@
 package com.chason.algorithm.class01;
 
+import com.chason.algorithm.class03._03_FastSort;
 import com.chason.algorithm.utils.ArrayUtils;
+
+import java.util.Arrays;
 
 /**
  * simpleSort :
@@ -68,31 +71,28 @@ public class _01_BaseSort {
         }
     }
 
-
+    // ======== 对数器 ===========
     public static void main(String[] args) {
 
-//        int[] arr1 = {3, 1, 8, 2, 9, 4, 1, 7};
-//        int[] arr2 = {};
-//        int[] arr3 = {1};
-//        int[] arr4 = {2,2,2};
-//
-//        bubbleSort(arr1);
-//        bubbleSort(arr2);
-//        bubbleSort(arr3);
-//        bubbleSort(arr4);
-//
-//        insertSort(arr1);
-//        insertSort(arr2);
-//        insertSort(arr3);
-//        insertSort(arr4);
-//
-//        ArrayUtils.print(arr1);
-//        ArrayUtils.print(arr2);
-//        ArrayUtils.print(arr3);
-//        ArrayUtils.print(arr4);
+        int maxValue = 100;
+        int maxSize  = 100;
+        int testTime = 100000;
 
-        SortChecker.start();
+        boolean suc = true;
 
+        for (int i=0; i<testTime; i++) {
+
+            int[] arr = ArrayUtils.buildRandomArray(maxValue, maxSize);
+            int[] arr1 = ArrayUtils.copyArray(arr);
+            insertSort(arr);
+            Arrays.sort(arr1);
+            if (!ArrayUtils.isEqual(arr, arr1)) {
+                suc = false;
+                break;
+            }
+        }
+
+        System.out.println(suc ? "Pass" : "Failed");
     }
 
 }

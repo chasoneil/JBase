@@ -1,8 +1,9 @@
 package com.chason.algorithm.class01;
 
+import com.chason.algorithm.utils.ArrayUtils;
+
 /**
  * dichotomy can solve some type of problems
- *
  * 1. check target exist in a sorted arr
  * 2. check nearest left position >= target
  * 3. check nearest right position <= target
@@ -127,12 +128,33 @@ public class _02_Dichotomy {
         return -1;
     }
 
-
+    // ===== 对数器 =========
     public static void main(String[] args) {
 
-        // DichotomyChecker.isExistStarter();
+        int maxValue = 100;
+        int maxSize  = 100;
+        int testTime = 100000;
 
-        DichotomyChecker.nearestLeftStarter();
+        boolean suc = true;
+
+        for (int i=0; i<testTime; i++) {
+            int randomTarget = ((int)(Math.random() * maxValue) + 1) - ((int)(Math.random() * maxValue) + 1);
+            int[] arr = ArrayUtils.buildSortedArray(maxValue, maxSize);
+
+            /*if (isExist(arr, randomTarget) != isExistBase(arr, randomTarget)) {
+                suc = false;
+                break;
+            }*/
+
+            if (nearestLeft(arr, randomTarget) != nearestLeftBase(arr, randomTarget)) {
+                suc = false;
+                break;
+            }
+        }
+
+        System.out.println(suc ? "Pass" : "Failed");
     }
+
+
 
 }
