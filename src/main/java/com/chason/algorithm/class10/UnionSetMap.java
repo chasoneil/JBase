@@ -16,10 +16,13 @@ public class UnionSetMap<T> {
     // 只有代表节点才有size
     public HashMap<T, Integer> sizeMap;
 
+    public int sets;
+
     // 初始化并查集
     public UnionSetMap(List<T> values) {
         parents = new HashMap<>();
         sizeMap = new HashMap<>();
+        sets = values.size();
         for (T t : values) {
             parents.put(t, t);
             sizeMap.put(t, 1);
@@ -58,6 +61,8 @@ public class UnionSetMap<T> {
             sizeMap.put(bigHead, aSize + bSize);
             sizeMap.remove(smallHead);
         }
+
+        sets--;
     }
 
     // a 样本和 b 样本在不在一个集合
