@@ -1,8 +1,6 @@
 package com.chason.algorithm.class01;
 
-import com.chason.algorithm.class03._03_FastSort;
 import com.chason.algorithm.utils.ArrayUtils;
-
 import java.util.Arrays;
 
 /**
@@ -44,7 +42,6 @@ public class _01_BaseSort {
                 }
             }
         }
-
     }
 
     /**
@@ -71,27 +68,44 @@ public class _01_BaseSort {
         }
     }
 
+    // 更容易理解的一种插入排序的方式
+    public static void insertSort2(int[] arr) {
+
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+
+        // 0 - i sorted
+        for (int i=0; i<arr.length; i++) {
+            // 表示当前检测到了j位置，需要让0 - j位置的数有序
+            // 从j位置往前看，如果比前面小，交换，直到不能交换或者已经到了0位置
+            for (int j=i; j>0; j--) {
+                if (arr[j] < arr[j-1]) {
+                    ArrayUtils.swap(arr, j, j-1);
+                }
+            }
+        }
+    }
+
     // ======== 对数器 ===========
     public static void main(String[] args) {
 
         int maxValue = 100;
         int maxSize  = 100;
         int testTime = 100000;
-
         boolean suc = true;
 
         for (int i=0; i<testTime; i++) {
 
             int[] arr = ArrayUtils.buildRandomArray(maxValue, maxSize);
             int[] arr1 = ArrayUtils.copyArray(arr);
-            insertSort(arr);
+            insertSort2(arr);
             Arrays.sort(arr1);
             if (!ArrayUtils.isEqual(arr, arr1)) {
                 suc = false;
                 break;
             }
         }
-
         System.out.println(suc ? "Pass" : "Failed");
     }
 

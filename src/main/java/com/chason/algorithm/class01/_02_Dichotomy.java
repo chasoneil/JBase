@@ -134,7 +134,6 @@ public class _02_Dichotomy {
         int maxValue = 100;
         int maxSize  = 100;
         int testTime = 100000;
-
         boolean suc = true;
 
         for (int i=0; i<testTime; i++) {
