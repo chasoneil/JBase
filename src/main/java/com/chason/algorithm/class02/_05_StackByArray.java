@@ -1,77 +1,80 @@
 package com.chason.algorithm.class02;
 
+// 数组实现栈
 public class _05_StackByArray {
 
-    private int[] arr;
+    private static class StackByArray {
 
-    private static final int LIMIT = 5;
+        private int[] arr;
+        private int capacity;
+        private int pushIndex;
+        private int popIndex;
+        private int size;
 
-    private int count;
+        public StackByArray(int capacity) {
+            if (capacity < 0) {
+                throw new RuntimeException("Capacity is under 0.");
+            }
 
-    private int capacity;
-
-    private int index;
-
-    public _05_StackByArray(int capacity) {
-        capacity = capacity > LIMIT ? capacity : LIMIT;
-        arr = new int[capacity];
-        this.capacity = capacity;
-    }
-
-    public int pop() {
-
-        if (count == 0) {
-            throw new RuntimeException("Stack is empty");
+            this.capacity = capacity;
+            arr = new int[capacity];
+            pushIndex = popIndex = 0;
+            size = 0;
         }
 
-        int val = arr[--index];
-        count--;
-        return val;
-    }
-
-    public int peek() {
-        if (count == 0) {
-            throw new RuntimeException("Stack is empty");
+        public void push(int ele) {
+            if (size == capacity) {
+                throw new RuntimeException("Stack is full!");
+            }
+            arr[pushIndex++] = ele;
+            popIndex++;
+            size++;
         }
 
-        return arr[index-1];
-    }
+        public int pop() {
+            if (size == 0) {
+                throw new RuntimeException("Stack is empty!");
+            }
 
-    public void push(int value) {
-
-        if (count == capacity) {
-            throw new RuntimeException("Stack is full");
+            int result = arr[--popIndex];
+            pushIndex--;
+            size--;
+            return result;
         }
 
-        arr[index++] = value;
-        count++;
+        public int peek() {
+            if (size == 0) {
+                throw new RuntimeException("Stack is empty!");
+            }
+
+            return arr[popIndex-1];
+        }
+
+        public int size() {
+            return size;
+        }
+
     }
 
-    public int size() {
-        return count;
-    }
 
-    public boolean isEmpty() {
-        return count == 0;
-    }
 
     public static void main(String[] args) {
 
-        _05_StackByArray stack = new _05_StackByArray(5);
+        StackByArray stack = new StackByArray(5);
         stack.push(1);
         stack.push(2);
         stack.push(3);
         stack.push(4);
+
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+
         stack.push(5);
-        // stack.push(6);
-
-        System.out.println(stack.peek());
-        System.out.println(stack.peek());
-
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
+        stack.push(6);
+        stack.push(7);
+        stack.push(8);
+        stack.push(9);
     }
 
 

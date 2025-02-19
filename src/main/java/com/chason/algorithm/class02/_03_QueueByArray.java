@@ -1,74 +1,81 @@
 package com.chason.algorithm.class02;
 
+/**
+ * 使用数组实现队列
+ */
 public class _03_QueueByArray {
 
-    private int[] arr;
+    public static class QueueByArray {
 
-    private static final int LIMIT = 5;
+        private int[] arr;
 
-    private int capacity;
+        private int size;
 
-    private int count;
+        private int capacity;
 
-    private int pushIdx;
+        private int offerIndex;
 
-    private int popIdx;
+        private int pollIndex;
 
-    public _03_QueueByArray(int capacity) {
-        capacity = capacity > LIMIT ? capacity : LIMIT;
-        arr = new int[capacity];
-        this.capacity = capacity;
-    }
+        public QueueByArray (int capacity) {
+            if (capacity <= 0) {
+                throw new RuntimeException("Capacity is under 0.");
+            }
 
-    public void offer(int value) {
-
-        if (count == capacity) {
-            throw new RuntimeException("Queue is full");
+            this.capacity = capacity;
+            arr = new int[capacity];
+            size = 0;
+            offerIndex = pollIndex = 0;
         }
 
-        arr[pushIdx] = value;
-        pushIdx = nextIdx(pushIdx);
-        count++;
-    }
-
-    public int poll() {
-
-        if (count == 0) {
-            throw new RuntimeException("Queue is empty");
+        public void offer(int ele) {
+            if (size == capacity) {
+                throw new RuntimeException("Queue is full!");
+            }
+            arr[offerIndex] = ele;
+            offerIndex = nextIndex(offerIndex);
+            size++;
         }
 
-        int val = arr[popIdx];
-        popIdx = nextIdx(popIdx);
-        count--;
-        return val;
-    }
-
-    public int peek() {
-        if (count == 0) {
-            throw new RuntimeException("Queue is empty");
+        public int poll() {
+            if (size == 0) {
+                throw new RuntimeException("Queue is empty.");
+            }
+            int result = arr[pollIndex];
+            pollIndex = nextIndex(pollIndex);
+            size--;
+            return result;
         }
 
-        return arr[popIdx];
+        public int peek() {
+            if (size == 0) {
+                throw new RuntimeException("Queue is empty.");
+            }
+            return arr[pollIndex];
+        }
+
+        private int nextIndex(int index) {
+            if (index == capacity-1) { // 只有到边界才变
+                return 0;
+            } else {
+                return index+1;
+            }
+        }
+
+        public int size() {
+            return size;
+        }
+
     }
 
-    public int size() {
-        return count;
-    }
-
-
-    public int nextIdx(int index) {
-        return index == capacity-1 ? 0 : index+1;
-    }
-
+    // === 测试 ====
     public static void main(String[] args) {
 
-
-        _03_QueueByArray queue = new _03_QueueByArray(3);
+        QueueByArray queue = new QueueByArray(5);
         queue.offer(1);
         queue.offer(2);
         queue.offer(3);
         queue.offer(4);
-        queue.offer(5);
         // queue.offer(6);
 
         System.out.println(queue.peek());
@@ -77,7 +84,6 @@ public class _03_QueueByArray {
         System.out.println(queue.poll());
         System.out.println(queue.poll());
         System.out.println(queue.poll());
-
     }
 
 }

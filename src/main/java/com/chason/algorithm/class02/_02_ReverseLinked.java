@@ -74,45 +74,42 @@ public class _02_ReverseLinked {
         for (int i=0; i<testTime; i++) {
             Node head = generateLinkedList(maxLength, maxValue);
             Stack<Node> stack = new Stack<>();
-            Node curr = head;
-            while (curr != null) {
-                stack.push(curr);
-                curr = curr.next;
-            }
-
+            push(stack, head);
             Node newHead = reverseSingle(head);
-            curr = newHead;
-            while (curr != null) {
-                if (curr.value != stack.pop().value) {
-                    suc = false;
-                    break;
-                }
+
+            if (!checkReverse(stack, newHead)) {
+                suc = false;
+                break;
             }
         }
         System.out.println(suc ? "Passed" : "Failed");
     }
 
+    private static void push(Stack<Node> stack, Node head) {
 
-
-    //  传入两个链表的头，判断两个链表是否是反转链表
-    private static boolean sucReverse(Node head1, Node head2) {
-
-        Stack<Integer> stack = new Stack<>();
-        while (head1 != null) {
-            stack.push(head1.value);
-            head1 = head1.next;
+        if (head == null) {
+            return;
         }
 
-        ArrayList<Integer> list1 = new ArrayList<>();
-        while (head2 != null) {
-            list1.add(head2.value);
-            head2 = head2.next;
+        Node tmp = head;
+        while (tmp != null) {
+            stack.push(tmp);
+            tmp = tmp.next;
+        }
+    }
+
+    // 反转链表之后，原链表的头已经无效了，所以只能用新链表的头做测试
+    private static boolean checkReverse(Stack<Node> stack, Node head) {
+
+        if (head == null) {
+            return true;
         }
 
-        for (int i=0; i<list1.size(); i++) {
-            if (list1.get(i) != stack.pop().intValue()) {
+        while (!stack.isEmpty()) {
+            if (stack.pop().value != head.value) {
                 return false;
             }
+            head = head.next;
         }
 
         return true;
