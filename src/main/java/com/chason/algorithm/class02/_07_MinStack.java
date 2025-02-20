@@ -7,9 +7,9 @@ import java.util.Stack;
  */
 public class _07_MinStack {
 
-    private Stack data = new Stack();
+    private Stack<Integer> data = new Stack<>();
 
-    private Stack min = new Stack();
+    private Stack<Integer> min = new Stack<>();
 
     public int pop() {
         min.pop();
@@ -63,7 +63,6 @@ public class _07_MinStack {
 
         stack.pop();
         System.out.println(stack.getMin());
-
     }
 
 }
