@@ -57,8 +57,6 @@ public class _02_GetMax {
         boolean suc = true;
         for (int i=0; i<testTime; i++) {
             int[] arr = generateArray(maxLength, maxValue);
-            int m1 = getMax(arr);
-            int m2 = getMax2(arr);
             if (getMax(arr) != getMax2(arr)) {
                 suc = false;
                 break;
