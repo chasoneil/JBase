@@ -1,6 +1,6 @@
 package com.chason.algorithm.class03;
 
-public class _02_MergeSort {
+public class _03_MergeSort {
 
 
     public static void sort1(int[] arr) {
