@@ -2,6 +2,8 @@ package com.chason.algorithm.class03;
 
 import com.chason.algorithm.utils.ArrayUtils;
 
+import java.util.Arrays;
+
 public class _03_FastSort {
 
 
@@ -147,21 +149,26 @@ public class _03_FastSort {
     }
 
 
+    // ========= 对数器 ===========
     public static void main(String[] args) {
 
-        int[] arr = {8, 6, 2, 4, 5, 1, 0, 7};
+        int maxValue = 100;
+        int maxSize  = 100;
+        int testTime = 100000;
+        boolean suc = true;
 
-        int[] arr1 = {4, 2, 6, 2, 3, 1, 7, 4, 5, 9 ,0, 4};
+        for (int i=0; i<testTime; i++) {
 
-        //partition1(arr, 4);
-
-        //partition2(arr1, 4);
-
-        int[] result = partition3(arr1, 0, arr.length-1);
-
-        ArrayUtils.print(arr1);
-        ArrayUtils.print(result);
-
+            int[] arr = ArrayUtils.buildRandomArray(maxValue, maxSize);
+            int[] arr1 = ArrayUtils.copyArray(arr);
+            sort(arr);
+            Arrays.sort(arr1);
+            if (!ArrayUtils.isEqual(arr, arr1)) {
+                suc = false;
+                break;
+            }
+        }
+        System.out.println(suc ? "Pass" : "Failed");
     }
 
 }
