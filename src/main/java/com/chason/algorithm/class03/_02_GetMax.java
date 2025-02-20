@@ -22,8 +22,8 @@ public class _02_GetMax {
      */
     public static int process(int[] arr, int L, int R) {
 
-        if (L >= R) {  // 一定要注意这里的边界，如果不是 >= 则会栈溢出
-            return -1;
+        if (L == R) {  // 一定要注意这里的边界，如果不是 >= 则会栈溢出
+            return arr[L];
         }
 
         int M = (R - L)/2 + L;
@@ -48,7 +48,7 @@ public class _02_GetMax {
     }
 
     // ======= 对数器 =========
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
 
         int maxValue = 100;
         int maxLength = 10;
@@ -66,12 +66,6 @@ public class _02_GetMax {
         }
 
         System.out.println(suc ? "Pass!" : "Failed!");
-    }*/
-
-    public static void main(String[] args) {
-
-        int[] arr = {1, 2, 3, 4};
-        System.out.println(getMax(arr));
     }
 
     private static int[] generateArray(int maxLength, int maxValue) {
