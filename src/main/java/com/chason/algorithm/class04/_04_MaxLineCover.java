@@ -27,7 +27,7 @@ import java.util.PriorityQueue;
  * 5. 找出这个数值最大的返回
  * 时间复杂度 O(N*logN)
  */
-public class _02_MaxLineCover {
+public class _04_MaxLineCover {
 
     // 线段
     static class Line {

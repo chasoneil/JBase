@@ -13,7 +13,7 @@ package com.chason.algorithm.class04;
  * 右子节点的位置是 2*i+2
  * 他的父节点的位置是 i-1/2
  */
-public class HeapSort {
+public class _02_HeapSort {
 
     // 堆排序
     // 时间复杂度 O(N * logN)

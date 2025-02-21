@@ -7,7 +7,7 @@ import java.util.Map;
  * 计数排序  桶排序的一种，本质上就是利用容器来进行排序，使用空间换时间
  * 计数排序不基于比较
  */
-public class SpecialSort {
+public class _06_SpecialSort {
 
     public static void main(String[] args) {
 

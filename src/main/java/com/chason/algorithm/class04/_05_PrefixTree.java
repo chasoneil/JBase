@@ -13,7 +13,7 @@ package com.chason.algorithm.class04;
  * 前缀树中都是路径表示具体的字符，而不是节点表示，当出现相同的路径的时候，节点的 pass++
  * 当一个字符串结束的时候，节点的 end++
  */
-public class PrefixTree {
+public class _05_PrefixTree {
 
     public static void main(String[] args) {
 

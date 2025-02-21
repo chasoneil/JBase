@@ -1,5 +1,9 @@
 package com.chason.algorithm.class03;
 
+import com.chason.algorithm.utils.ArrayUtils;
+
+import java.util.Arrays;
+
 public class _03_MergeSort {
 
 
@@ -10,9 +14,7 @@ public class _03_MergeSort {
         }
 
         doSort(arr, 0, arr.length-1);
-
     }
-
 
     /**
      * let arr sorted from L to R
@@ -102,6 +104,30 @@ public class _03_MergeSort {
             step = step * 2;
         }
     }
+
+    // ======== 对数器 ===========
+    public static void main(String[] args) {
+
+        int maxValue = 100;
+        int maxSize  = 100;
+        int testTime = 100000;
+        boolean suc = true;
+
+        for (int i=0; i<testTime; i++) {
+
+            int[] arr = ArrayUtils.buildRandomArray(maxValue, maxSize);
+            int[] arr1 = ArrayUtils.copyArray(arr);
+            sort1(arr);
+            Arrays.sort(arr1);
+            if (!ArrayUtils.isEqual(arr, arr1)) {
+                suc = false;
+                break;
+            }
+        }
+        System.out.println(suc ? "Pass" : "Failed");
+    }
+
+
 
 
 }

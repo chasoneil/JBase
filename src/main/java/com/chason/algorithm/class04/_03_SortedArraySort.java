@@ -16,7 +16,7 @@ import java.util.PriorityQueue;
  * 每次弹出一个，弹出的数必定是最小的数，所以从前到后补上，弹出一个，补上一个
  * 直到遍历完整个数组
  */
-public class _01_SortedArraySort {
+public class _03_SortedArraySort {
 
     public static void main(String[] args) {
 
