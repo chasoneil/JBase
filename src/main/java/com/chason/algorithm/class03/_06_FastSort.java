@@ -4,7 +4,7 @@ import com.chason.algorithm.utils.ArrayUtils;
 
 import java.util.Arrays;
 
-public class _05_FastSort {
+public class _06_FastSort {
 
 
     public static void sort(int[] arr) {
