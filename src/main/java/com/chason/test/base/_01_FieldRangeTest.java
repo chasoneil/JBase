@@ -1,6 +1,9 @@
-package com.chason.test;
+package com.chason.test.base;
 
-public class FieldRangeTest {
+/**
+ * 变量的作用域
+ */
+public class _01_FieldRangeTest {
 
     static int index = 0;
 
