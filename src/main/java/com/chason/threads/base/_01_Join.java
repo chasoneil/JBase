@@ -3,6 +3,7 @@ package com.chason.threads.base;
 /**
  * test join() method
  * join() 表示将当前的线程和调用他的线程合并，直到当前线程执行完，调用线程才能执行
+ * 相当于排队，调用Join的线程排队
  */
 public class _01_Join {
 
