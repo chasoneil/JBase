@@ -3,11 +3,22 @@ package com.chason.base.lesson1;
 /**
  * 参数：
  * 1. 值传递和引用传递 func1()
+ * 结论: java都是值传递，如果需要类似交换值的方式，需要借助对象或者数组
+ * 2. 关于全局变量的使用 func2()
  */
-public class Demo4_1 {
+public class Demo4Test {
+
+    // 用于记录本类被实例化了多少次
+    private static int count = 0;
+
+    // 构造方法一旦被调用，count 就加 1
+    public Demo4Test() {
+        count++;
+    }
 
     public static void main(String[] args) {
-        func1();
+        // func1();
+        func2();
     }
 
     /**
@@ -49,7 +60,10 @@ public class Demo4_1 {
         System.out.println("swap2: str1=" + str1 + " str2=" + str2);    // Chason Hello
     }
 
-
-
-
+    private static void func2() {
+        Demo4Test demo1 = new Demo4Test();
+        Demo4Test demo2 = new Demo4Test();
+        Demo4Test demo3 = new Demo4Test();
+        System.out.println("创建的对象数：" + count);    // 3
+    }
 }

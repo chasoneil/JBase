@@ -1,7 +1,7 @@
 package com.chason.base.lesson1;
 
 /**
- * 1. Java 基本数据类型的包装类 func1()
+ * 1. Java 基本数据类型的包装类 以及怎么获取对应类型的最大值和最小值 func1()
  * 2. 每个基本类型的默认值  func2()
  * 3. Java常量 func3()
  * 4. 类型转换 func4()
