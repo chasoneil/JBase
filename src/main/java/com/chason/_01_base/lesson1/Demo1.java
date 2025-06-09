@@ -1,4 +1,4 @@
-package com.chason.base.lesson1;
+package com.chason._01_base.lesson1;
 
 /**
  * 第一个Java程序

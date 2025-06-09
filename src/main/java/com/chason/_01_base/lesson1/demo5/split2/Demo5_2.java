@@ -1,6 +1,6 @@
-package com.chason.base.lesson1.demo5.split2;
+package com.chason._01_base.lesson1.demo5.split2;
 
-import com.chason.base.lesson1.demo5.split1.Demo5_1;
+import com.chason._01_base.lesson1.demo5.split1.Demo5_1;
 
 /**
  * 测试访问修饰符跨包的可见性情况 func1()

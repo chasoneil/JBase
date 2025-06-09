@@ -1,4 +1,4 @@
-package com.chason.base.lesson1;
+package com.chason._01_base.lesson1;
 
 /**
  * Java 注释 func1()

@@ -1,4 +1,4 @@
-package com.chason.base.lesson2;
+package com.chason._01_base.lesson2;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

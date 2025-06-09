@@ -1,4 +1,4 @@
-package com.chason.base.lesson1.demo5.split1;
+package com.chason._01_base.lesson1.demo5.split1;
 
 /**
  * 测试访问修饰符的范围  func1()

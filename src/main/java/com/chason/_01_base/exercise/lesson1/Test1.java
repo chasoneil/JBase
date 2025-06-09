@@ -1,4 +1,4 @@
-package com.chason.base.exercise.lesson1;
+package com.chason._01_base.exercise.lesson1;
 
 /**
  * 数组的测试01

@@ -1,4 +1,4 @@
-package com.chason.base.lesson1;
+package com.chason._01_base.lesson1;
 
 /**
  * 循环 switch case  func1()
