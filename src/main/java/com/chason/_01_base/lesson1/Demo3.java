@@ -5,6 +5,7 @@ package com.chason._01_base.lesson1;
  * 2. 每个基本类型的默认值  func2()
  * 3. Java常量 func3()
  * 4. 类型转换 func4()
+ * 5. 运算符 func5()
  */
 public class Demo3 {
 
@@ -21,7 +22,8 @@ public class Demo3 {
         // func1();
         // func2();
         // func3();
-        func4();
+        // func4();
+        func5();
     }
 
     private static void func1() {
@@ -99,20 +101,53 @@ public class Demo3 {
 
     /**
      * 数据类型转换
-     * 规则： 小转大可以  浮点转整形会丢失精度，直接省略小数位
+     * 规则： 小转大可以  大转小需要强制转化
+     * 所有的类型只针对变量，常量则不受控制
      */
     private static void func4() {
 
+        /* 小转大 不会丢失精度 */
         float f1 = 34.89f;
-        int i1 = (int) f1;
+        double d1 = f1;
+        System.out.println("d1:" + d1);  // todo: d1:34.88999938964844
+
+        short s1 = 1;
+        int i1 = s1;
         System.out.println("i1:" + i1);
 
-        f1= -32.12f;
-        i1 = (int) f1;
-        System.out.println("i1:" + i1);
+        byte b1 = 3;
+        short s2 = b1;
+        System.out.println("s2:" + s2);
 
-        int i2 = 3;
-        float f2 = i2; // 小转大
-        System.out.println("f2:" + f2);  // 3.0
+        /* 大转小 可能丢失精度 */
+        int num1 = 4;
+        // short num2 = num1; 编译直接报错
+        short num2 = (short) num1;
+        System.out.println("num2:" + num2);
+
+        double num3 = 32.123256322;
+        float num4 = (float) num3;
+        System.out.println("num4:" + num4);  // num4:32.123257
+
+        float number1 = 10.25f;
+        int number2 = (int) number1;
+        System.out.println("number2:" + number2);
+
+        /* 常量不受这个规范控制 */
+        short sh1 = 20 + 30;        // 整形常量依然能够给short类型
+        System.out.println("sh1:" + sh1);
+    }
+
+    /**
+     * 运算符相关的小练习
+     */
+    private static void func5() {
+        int n = 5;
+        n = ++n + ++n;
+        System.out.println("n:" + n);
+
+        int m = 3;
+        m = ++m + m++;
+        System.out.println("m:" + m);
     }
 }
