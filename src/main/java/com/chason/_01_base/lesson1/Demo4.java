@@ -5,6 +5,7 @@ package com.chason._01_base.lesson1;
  * 2. Java 实例变量 func2()
  * 3. Java 类变量（全局静态） func3()
  * 4. Java 参数变量 func4()
+ * 5. Java 可变参数列表 func5()
  */
 public class Demo4 {
 
@@ -21,8 +22,8 @@ public class Demo4 {
         // demo4.func2();
 
         // func3();
-
-        func4();
+        // func4();
+        func5();
     }
 
     /**
@@ -65,6 +66,28 @@ public class Demo4 {
     private static void changeNumber (int num) {
         num = 10;
         System.out.println("changeNum:" + num); // 10
+    }
+
+    /**
+     * 可变参数列表本质上就是数组，可以按照数组的方式处理
+     */
+    private static void func5() {
+        getAverage(10, 20, 30, 5);
+    }
+
+    /**
+     * 使用的方法是 type ... name
+     * @param params
+     */
+    private static void getAverage(int ... params) {
+        int avg = 0;
+        int count = params.length;
+        int sum = 0;
+        for (int i=0; i<count; i++) {
+            sum += params[i];
+        }
+        avg = sum / count;
+        System.out.println("avg:" + avg);
     }
 
 
