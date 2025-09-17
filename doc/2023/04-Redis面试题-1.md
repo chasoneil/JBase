@@ -76,7 +76,7 @@ Redis 单线程指的是网络请求模块使用了一个线程，即一个线�
 
 4.Reactor 设计模式
 
-Redis基于Reactor模式开发了自己的网络事件处理器，称之为文件事件处理器(File Event Hanlder)。
+Redis基于Reactor模式开发了自己的网络事件处理器，称之为文件事件处理器(File Event Handler)。
 
 ## 4、讲一讲Redis常见数据结构以及使用场景
 

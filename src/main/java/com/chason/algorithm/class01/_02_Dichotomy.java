@@ -15,28 +15,28 @@ public class _02_Dichotomy {
             return false;
         }
 
+        int len = arr.length;
+
         if (target < arr[0]) {
             return false;
         }
 
-        if (target > arr[arr.length-1]) {
+        if (target > arr[len - 1]) {
             return false;
         }
 
-        int L = 0;
-        int R = arr.length - 1;
+        int left = 0;
+        int right = len - 1;
 
         int M;
-
-        while (L<=R) {
-
-            M = L + (R-L)/2;
+        while (left<=right) {
+            M = left + (right-left)/2;
             if (arr[M] == target) {
                 return true;
             } else if (arr[M] > target) {
-                R = M-1;
+                right = M-1;
             } else {
-                L = M+1;
+                left = M+1;
             }
         }
 

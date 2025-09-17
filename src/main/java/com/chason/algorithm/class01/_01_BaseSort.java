@@ -12,7 +12,6 @@ import java.util.Arrays;
  */
 public class _01_BaseSort {
 
-
     public static void selectSort(int[] arr) {
 
         if (arr == null || arr.length < 2) {
@@ -27,7 +26,6 @@ public class _01_BaseSort {
             ArrayUtils.swap(arr, minIndex, i);
         }
     }
-
 
     public static void bubbleSort(int[] arr) {
 
@@ -108,5 +106,4 @@ public class _01_BaseSort {
         }
         System.out.println(suc ? "Pass" : "Failed");
     }
-
 }

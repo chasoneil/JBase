@@ -1,5 +1,9 @@
 package com.chason.algorithm.class02;
 
+/**
+ * 使用双链表构建一个队列
+ *
+ */
 public class _04_QueueByNode {
 
     public static class QueueByNode {

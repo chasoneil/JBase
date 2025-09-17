@@ -18,6 +18,7 @@ public class _04_ThreadPool01 {
 
         // = threadPool.execute(new MyRunnable());
         fixedThreadPool.submit(new MyRunnable());
+
     }
 
     static class MyRunnable implements Runnable {
