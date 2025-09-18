@@ -22,7 +22,7 @@ public class _02_GetMax {
      */
     public static int process(int[] arr, int L, int R) {
 
-        if (L == R) {  // 一定要注意这里的边界，如果不是 >= 则会栈溢出
+        if (L >= R) {  // 一定要注意这里的边界，如果不是 >= 则会栈溢出
             return arr[L];
         }
 
