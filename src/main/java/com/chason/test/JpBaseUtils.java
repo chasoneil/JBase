@@ -95,8 +95,6 @@ public class JpBaseUtils {
         }
     }
 
-
-
     private static void comboTest() {
 
         System.out.println();
@@ -115,12 +113,12 @@ public class JpBaseUtils {
     }
 
     private static void doComboTest(int type) {
-        int rWords = (int)(Math.random() * 3) + 3;    // 每个单词的字数
-        int testTime = (int)(Math.random() * 5) + 5;  // 测试的组数也是5-10组
 
+        int testTime = (int)(Math.random() * 5) + 5;  // 测试的组数也是5-10组
         int timeCopy = testTime;
 
         while (testTime > 0) {
+            int rWords = (int)(Math.random() * 3) + 3;    // 每个单词的字数
             if (type == 1) {
                 doPingToPianCombo(rWords);
             } else if (type == 2) {
@@ -264,6 +262,4 @@ public class JpBaseUtils {
         contains.add(yu);
         contains.add(yo);
     }
-
-
 }
