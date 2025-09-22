@@ -1,4 +1,4 @@
-package com.chason.test;
+package com.chason.jp.wushi;
 
 import java.util.*;
 
@@ -242,6 +242,21 @@ public class JpBaseUtils {
         WuShi ke = new WuShi("け", "ケ", "ke");
         WuShi ko = new WuShi("こ", "コ", "ko");
 
+        WuShi ga = new WuShi("が", "ガ", "ga");
+        WuShi gi = new WuShi("ぎ", "ギ", "gi");
+        WuShi gu = new WuShi("ぐ", "グ", "gu");
+        WuShi ge = new WuShi("げ", "ゲ", "ge");
+        WuShi go = new WuShi("ご", "ゴ", "go");
+
+        // 拗音
+        // きゃ きゅ　きょ
+        WuShi kya = new WuShi("きゃ", "キャ", "kya");
+        WuShi kyu = new WuShi("きゅ", "きゅ", "kyu");
+        WuShi kyo = new WuShi("きょ", "<UNK>", "kyo");
+
+        // ぎゃ　ぎゅ　ぎょ
+
+
         WuShi ya = new WuShi("や", "ヤ", "ya");
         WuShi yu = new WuShi("ゆ", "ユ", "yu");
         WuShi yo = new WuShi("よ", "ヨ", "yo");
@@ -257,6 +272,12 @@ public class JpBaseUtils {
         contains.add(ku);
         contains.add(ke);
         contains.add(ko);
+
+        contains.add(ga);
+        contains.add(gi);
+        contains.add(gu);
+        contains.add(ge);
+        contains.add(go);
 
         contains.add(ya);
         contains.add(yu);
