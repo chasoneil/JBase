@@ -10,10 +10,11 @@ public class JpBaseUtils {
 
     private static Scanner sc = new Scanner(System.in);
 
+    private static long startTime;
+    private static long finishTime;
+
     public static void main(String[] args) {
-
         start();
-
     }
 
     // todo 加入循环选择的机制
@@ -56,6 +57,13 @@ public class JpBaseUtils {
         int testTime = (int)(Math.random() * 5) + 5;
         int timeCopy = testTime;
 
+        if (type == 1) {
+            System.out.println("请根据平假名写出对应的片假名,按回车结束:");
+        } else if (type == 2) {
+            System.out.println("请根据平假名写出对应的片假名,按回车结束:");
+        }
+
+        startTime = System.currentTimeMillis();
         while (testTime > 0) {
             if (type == 1) {
                 doPingToPian();
@@ -64,15 +72,17 @@ public class JpBaseUtils {
             }
             testTime--;
         }
+        finishTime = System.currentTimeMillis();
 
         int cRate = correct * 100 / timeCopy;
-        System.out.println("您的本组测试已经完成,一共" + timeCopy + "组测试,您回答正确了" + correct + "组, 您的正确率为:" + cRate + "%, 请再接再厉!");
+        int sec = (int) (finishTime - startTime) / 1000;
+        System.out.println("本组练习一共" + timeCopy + "组，用时:" + sec + "秒, 回答正确率为" + cRate + "%.");
     }
 
     private static void doPingToPian() {
         int randomIndex = (int) (Math.random() * contains.size());
         WuShi w = contains.get(randomIndex);
-        System.out.println("请根据平假名写出对应的片假名,按回车结束:" + w.ping);
+        System.out.println(w.ping);
         String input = sc.next();
         if (input.equals(w.pian)) {
             System.out.println("正确");
@@ -85,7 +95,7 @@ public class JpBaseUtils {
     private static void doPianToPing() {
         int randomIndex = (int) (Math.random() * contains.size());
         WuShi w = contains.get(randomIndex);
-        System.out.println("请根据片假名写出对应的平假名,按回车结束:" + w.pian);
+        System.out.println(w.pian);
         String input = sc.next();
         if (input.equals(w.ping)) {
             System.out.println("正确");
@@ -117,6 +127,13 @@ public class JpBaseUtils {
         int testTime = (int)(Math.random() * 5) + 5;  // 测试的组数也是5-10组
         int timeCopy = testTime;
 
+        if (type == 1) {
+            System.out.println("请根据平假名写出对应的片假名,按回车结束:");
+        } else if (type == 2) {
+            System.out.println("请根据片假名写出对应的平假名,按回车结束:");
+        }
+
+        startTime = System.currentTimeMillis();
         while (testTime > 0) {
             int rWords = (int)(Math.random() * 3) + 3;    // 每个单词的字数
             if (type == 1) {
@@ -127,8 +144,11 @@ public class JpBaseUtils {
             testTime--;
         }
 
+        finishTime = System.currentTimeMillis();
+
+        int sec = (int) (finishTime - startTime) / 1000;
         int cRate = correct * 100 / timeCopy;
-        System.out.println("您的本组测试已经完成,一共" + timeCopy + "组测试,您回答正确了" + correct + "组, 您的正确率为:" + cRate + "%, 请再接再厉!");
+        System.out.println("本组练习一共" + timeCopy + "组，用时:" + sec + "秒, 回答正确率为" + cRate + "%.");
     }
 
     // 平假名 -> 片假名的组合练习
@@ -151,7 +171,7 @@ public class JpBaseUtils {
             sbA.append(w.pian);
         }
 
-        System.out.println("请根据平假名写出对应的片假名,按回车结束:" + sbQ.toString());
+        System.out.println(sbQ.toString());
         String res = sc.next();
         if (res.contentEquals(sbA)) {
             System.out.println("正确");
@@ -180,7 +200,7 @@ public class JpBaseUtils {
             sbA.append(w.ping);
         }
 
-        System.out.println("请根据片假名写出对应的平假名,按回车结束:" + sbQ.toString());
+        System.out.println(sbQ.toString());
         String res = sc.next();
         if (res.contentEquals(sbA)) {
             System.out.println("正确");
@@ -188,13 +208,6 @@ public class JpBaseUtils {
         } else {
             System.out.println("错误");
         }
-    }
-
-    private static int nextSelectIndex(int len, int s) {
-        if (s == len-1) {
-            return 0;
-        }
-        return s+1;
     }
 
     private static int checkInput(String input) {
@@ -248,18 +261,17 @@ public class JpBaseUtils {
         WuShi ge = new WuShi("げ", "ゲ", "ge");
         WuShi go = new WuShi("ご", "ゴ", "go");
 
-        // 拗音
-        // きゃ きゅ　きょ
-        WuShi kya = new WuShi("きゃ", "キャ", "kya");
-        WuShi kyu = new WuShi("きゅ", "きゅ", "kyu");
-        WuShi kyo = new WuShi("きょ", "<UNK>", "kyo");
-
-        // ぎゃ　ぎゅ　ぎょ
-
-
         WuShi ya = new WuShi("や", "ヤ", "ya");
         WuShi yu = new WuShi("ゆ", "ユ", "yu");
         WuShi yo = new WuShi("よ", "ヨ", "yo");
+
+        // 拗音
+        WuShi kya = new WuShi("きゃ", "キャ", "kya");
+        WuShi kyu = new WuShi("きゅ", "キュ", "kyu");
+        WuShi kyo = new WuShi("きょ", "キョ", "kyo");
+        WuShi gya = new WuShi("ぎゃ", "ギャ", "gya");
+        WuShi gyu = new WuShi("ぎゅ", "ギュ", "gyu");
+        WuShi gyo = new WuShi("ぎょ", "ギョ", "gyo");
 
         contains.add(a);
         contains.add(i);
@@ -282,5 +294,12 @@ public class JpBaseUtils {
         contains.add(ya);
         contains.add(yu);
         contains.add(yo);
+
+        contains.add(kya);
+        contains.add(kyu);
+        contains.add(kyo);
+        contains.add(gya);
+        contains.add(gyu);
+        contains.add(gyo);
     }
 }
