@@ -1,38 +1,33 @@
 package com.chason.jp.pojo;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class WuShi {
 
     private String ping;
     private String pian;
-    private String roma;
+    private List<String> roma;
 
     public WuShi(String ping, String pian, String roma) {
         this.ping = ping;
         this.pian = pian;
-        this.roma = roma;
-    }
-
-    public void setPing(String ping) {
-        this.ping = ping;
+        this.roma = new ArrayList<>();
+        if (roma != null && !roma.isEmpty()) {
+            this.roma.addAll(Arrays.asList(roma.split(";")));
+        }
     }
 
     public String getPing() {
         return ping;
     }
 
-    public void setPian(String pian) {
-        this.pian = pian;
-    }
-
     public String getPian() {
         return pian;
     }
 
-    public void setRoma(String roma) {
-        this.roma = roma;
-    }
-
-    public String getRoma() {
+    public List<String> getRoma() {
         return roma;
     }
 }
