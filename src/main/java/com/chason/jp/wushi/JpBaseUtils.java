@@ -1,5 +1,8 @@
 package com.chason.jp.wushi;
 
+import com.chason.jp.pojo.WuShi;
+import com.chason.jp.utils.CheckUtil;
+
 import java.util.*;
 
 public class JpBaseUtils {
@@ -24,7 +27,7 @@ public class JpBaseUtils {
         initData();
         System.out.println("开始进行练习,请输入练习模式：1、单一的平片假名练习; 2、随机的平片假名组合练习;");
         String s1 = sc.next();
-        int s1i = checkInput(s1);
+        int s1i = CheckUtil.checkInput(s1);
         switch (s1i) {
             case 1:
                 singleTest();
@@ -43,7 +46,7 @@ public class JpBaseUtils {
         System.out.println("开始进行平片假名的单个练习,请选择练习类型：");
         System.out.println("1、根据平假名写片假名; 2、根据片假名写平假名;");
         String s2 = sc.next();
-        int s2i = checkInput(s2);
+        int s2i = CheckUtil.checkInput(s2);
 
         if (s2i == 1 || s2i == 2) {
             doSingleTest(s2i);
@@ -82,9 +85,9 @@ public class JpBaseUtils {
     private static void doPingToPian() {
         int randomIndex = (int) (Math.random() * contains.size());
         WuShi w = contains.get(randomIndex);
-        System.out.println(w.ping);
+        System.out.println(w.getPing());
         String input = sc.next();
-        if (input.equals(w.pian)) {
+        if (input.equals(w.getPian())) {
             System.out.println("正确");
             correct++;
         } else {
@@ -95,9 +98,9 @@ public class JpBaseUtils {
     private static void doPianToPing() {
         int randomIndex = (int) (Math.random() * contains.size());
         WuShi w = contains.get(randomIndex);
-        System.out.println(w.pian);
+        System.out.println(w.getPian());
         String input = sc.next();
-        if (input.equals(w.ping)) {
+        if (input.equals(w.getPing())) {
             System.out.println("正确");
             correct++;
         } else {
@@ -112,7 +115,7 @@ public class JpBaseUtils {
         System.out.println("1、根据平假名组合写片假名; 2、根据片假名组合写平假名;");
 
         String s2 = sc.next();
-        int s2i = checkInput(s2);
+        int s2i = CheckUtil.checkInput(s2);
 
         if (s2i == 1 || s2i == 2) {
             doComboTest(s2i);
@@ -167,8 +170,8 @@ public class JpBaseUtils {
         StringBuilder sbA = new StringBuilder();
         for (Integer i : selected) {
             WuShi w = contains.get(i);
-            sbQ.append(w.ping);
-            sbA.append(w.pian);
+            sbQ.append(w.getPing());
+            sbA.append(w.getPian());
         }
 
         System.out.println(sbQ.toString());
@@ -196,8 +199,8 @@ public class JpBaseUtils {
         StringBuilder sbA = new StringBuilder();
         for (Integer i : selected) {
             WuShi w = contains.get(i);
-            sbQ.append(w.pian);
-            sbA.append(w.ping);
+            sbQ.append(w.getPian());
+            sbA.append(w.getPing());
         }
 
         System.out.println(sbQ.toString());
@@ -207,34 +210,6 @@ public class JpBaseUtils {
             correct++;
         } else {
             System.out.println("错误");
-        }
-    }
-
-    private static int checkInput(String input) {
-
-        int selectNumber = -1;
-        try {
-            selectNumber = Integer.parseInt(input);
-        } catch (Exception e) {
-            System.out.println("您只能输入提示的选项数字，然后按下回车");
-            System.out.println("本次练习结束，请重新开始运行练习程序。");
-            System.exit(-1);
-        }
-
-        return selectNumber;
-    }
-
-
-    static class WuShi {
-
-        String ping;
-        String pian;
-        String roma;
-
-        public WuShi (String ping, String pian, String roma) {
-            this.ping = ping;
-            this.pian = pian;
-            this.roma = roma;
         }
     }
 
