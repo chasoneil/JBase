@@ -236,6 +236,18 @@ public class JpBaseUtils {
         WuShi ge = new WuShi("げ", "ゲ", "ge");
         WuShi go = new WuShi("ご", "ゴ", "go");
 
+        WuShi sa = new WuShi("さ", "サ", "sa");
+        WuShi si = new WuShi("し", "シ", "shi;si");  // 读音类似西瓜的西
+        WuShi su = new WuShi("す", "ス", "su");      // 读音类似 思考的思 后面带一点点的u
+        WuShi se = new WuShi("せ", "セ", "se");
+        WuShi so = new WuShi("そ", "ソ", "so");
+
+        WuShi za = new WuShi("ざ", "ザ", "za");
+        WuShi zi = new WuShi("じ", "ジ", "ji");
+        WuShi zu = new WuShi("ず", "ズ", "zu");    // 读音类似 滋味的滋
+        WuShi ze = new WuShi("ぜ", "ゼ", "ze");
+        WuShi zo = new WuShi("ぞ", "ゾ", "zo");
+
         WuShi ya = new WuShi("や", "ヤ", "ya");
         WuShi yu = new WuShi("ゆ", "ユ", "yu");
         WuShi yo = new WuShi("よ", "ヨ", "yo");
@@ -247,6 +259,13 @@ public class JpBaseUtils {
         WuShi gya = new WuShi("ぎゃ", "ギャ", "gya");
         WuShi gyu = new WuShi("ぎゅ", "ギュ", "gyu");
         WuShi gyo = new WuShi("ぎょ", "ギョ", "gyo");
+
+        WuShi sya = new WuShi("しゃ", "シャ", "sha;sya");
+        WuShi syu = new WuShi("しゅ", "シュ", "shu;syu");
+        WuShi syo = new WuShi("しょ", "ショ", "sho;syo");
+        WuShi zya = new WuShi("じゃ", "ジャ", "ja;zya");
+        WuShi zyu = new WuShi("じゅ", "ジュ", "ju;zyu");
+        WuShi zyo = new WuShi("じょ", "ジョ", "jo;zyo");
 
         contains.add(a);
         contains.add(i);
@@ -266,6 +285,18 @@ public class JpBaseUtils {
         contains.add(ge);
         contains.add(go);
 
+        contains.add(sa);
+        contains.add(si);
+        contains.add(su);
+        contains.add(se);
+        contains.add(so);
+
+        contains.add(za);
+        contains.add(zi);
+        contains.add(zu);
+        contains.add(ze);
+        contains.add(zo);
+
         contains.add(ya);
         contains.add(yu);
         contains.add(yo);
@@ -276,5 +307,12 @@ public class JpBaseUtils {
         contains.add(gya);
         contains.add(gyu);
         contains.add(gyo);
+
+        contains.add(sya);
+        contains.add(syu);
+        contains.add(syo);
+        contains.add(zya);
+        contains.add(zyu);
+        contains.add(zyo);
     }
 }
