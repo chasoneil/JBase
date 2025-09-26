@@ -8,13 +8,8 @@ import java.util.*;
 public class JpBaseUtils {
 
     private static List<WuShi> contains;
-
     private static int correct = 0;
-
     private static Scanner sc = new Scanner(System.in);
-
-    private static long startTime;
-    private static long finishTime;
 
     public static void main(String[] args) {
         start();
@@ -66,7 +61,7 @@ public class JpBaseUtils {
             System.out.println("请根据平假名写出对应的片假名,按回车结束:");
         }
 
-        startTime = System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
         while (testTime > 0) {
             if (type == 1) {
                 doPingToPian();
@@ -75,7 +70,7 @@ public class JpBaseUtils {
             }
             testTime--;
         }
-        finishTime = System.currentTimeMillis();
+        long finishTime = System.currentTimeMillis();
 
         int cRate = correct * 100 / timeCopy;
         int sec = (int) (finishTime - startTime) / 1000;
@@ -136,7 +131,7 @@ public class JpBaseUtils {
             System.out.println("请根据片假名写出对应的平假名,按回车结束:");
         }
 
-        startTime = System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
         while (testTime > 0) {
             int rWords = (int)(Math.random() * 3) + 3;    // 每个单词的字数
             if (type == 1) {
@@ -147,7 +142,7 @@ public class JpBaseUtils {
             testTime--;
         }
 
-        finishTime = System.currentTimeMillis();
+        long finishTime = System.currentTimeMillis();
 
         int sec = (int) (finishTime - startTime) / 1000;
         int cRate = correct * 100 / timeCopy;
