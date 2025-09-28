@@ -345,5 +345,7 @@ public class JpBaseUtils {
         contains.add(qya);
         contains.add(qyu);
         contains.add(qyo);
+
+        contains.add(n);
     }
 }
