@@ -2,6 +2,7 @@ package com.chason.jp.wushi;
 
 import com.chason.jp.pojo.WuShi;
 import com.chason.jp.utils.CheckUtil;
+import com.sun.tools.jconsole.JConsoleContext;
 
 import java.util.*;
 
@@ -243,6 +244,18 @@ public class JpBaseUtils {
         WuShi ze = new WuShi("ぜ", "ゼ", "ze");
         WuShi zo = new WuShi("ぞ", "ゾ", "zo");
 
+        WuShi ta = new WuShi("た", "タ", "ta");
+        WuShi ti = new WuShi("ち", "チ", "chi;ti");
+        WuShi tu = new WuShi("つ", "ツ", "tsu;tu");
+        WuShi te = new WuShi("て", "テ", "te");
+        WuShi to = new WuShi("と", "ト", "to");
+
+        WuShi da = new WuShi("だ", "ダ", "da");
+        WuShi di = new WuShi("ぢ", "ヂ", "di");   // 但是读音是 ji 读音同 じ
+        WuShi du = new WuShi("づ", "ヅ", "du");   // 读音也是 zi　读音同 ず
+        WuShi de = new WuShi("で", "デ", "de");
+        WuShi do_ = new WuShi("ど", "ド", "do");
+
         WuShi ya = new WuShi("や", "ヤ", "ya");
         WuShi yu = new WuShi("ゆ", "ユ", "yu");
         WuShi yo = new WuShi("よ", "ヨ", "yo");
@@ -261,6 +274,13 @@ public class JpBaseUtils {
         WuShi zya = new WuShi("じゃ", "ジャ", "ja;zya");
         WuShi zyu = new WuShi("じゅ", "ジュ", "ju;zyu");
         WuShi zyo = new WuShi("じょ", "ジョ", "jo;zyo");
+
+        // 因为本行的拗音和上一行的拗音一样，所以只有一组拗音
+        WuShi qya = new WuShi("ちゃ", "チャ", "cha;qya");
+        WuShi qyu = new WuShi("ちゅ", "チュ", "chu;qyu");
+        WuShi qyo = new WuShi("ちょ", "チョ", "cho;qyo");
+
+        WuShi n = new WuShi("ん", "ン", "nn");
 
         contains.add(a);
         contains.add(i);
@@ -292,6 +312,18 @@ public class JpBaseUtils {
         contains.add(ze);
         contains.add(zo);
 
+        contains.add(ta);
+        contains.add(ti);
+        contains.add(tu);
+        contains.add(te);
+        contains.add(to);
+
+        contains.add(da);
+        contains.add(di);
+        contains.add(du);
+        contains.add(de);
+        contains.add(do_);
+
         contains.add(ya);
         contains.add(yu);
         contains.add(yo);
@@ -309,5 +341,9 @@ public class JpBaseUtils {
         contains.add(zya);
         contains.add(zyu);
         contains.add(zyo);
+
+        contains.add(qya);
+        contains.add(qyu);
+        contains.add(qyo);
     }
 }
