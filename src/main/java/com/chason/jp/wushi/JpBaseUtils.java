@@ -256,6 +256,12 @@ public class JpBaseUtils {
         WuShi de = new WuShi("で", "デ", "de");
         WuShi do_ = new WuShi("ど", "ド", "do");
 
+        WuShi na = new WuShi("な", "ナ", "na");
+        WuShi ni = new WuShi("に", "ニ", "ni");
+        WuShi nu = new WuShi("ぬ", "ヌ", "nu");
+        WuShi ne = new WuShi("ね", "ネ", "ne");
+        WuShi no = new WuShi("の", "ノ", "no");
+
         WuShi ya = new WuShi("や", "ヤ", "ya");
         WuShi yu = new WuShi("ゆ", "ユ", "yu");
         WuShi yo = new WuShi("よ", "ヨ", "yo");
@@ -279,6 +285,10 @@ public class JpBaseUtils {
         WuShi qya = new WuShi("ちゃ", "チャ", "cha;qya");
         WuShi qyu = new WuShi("ちゅ", "チュ", "chu;qyu");
         WuShi qyo = new WuShi("ちょ", "チョ", "cho;qyo");
+
+        WuShi nya = new WuShi("にゃ", "ニャ", "nya");
+        WuShi nyu = new WuShi("にゅ", "ニュ", "nyu");
+        WuShi nyo = new WuShi("にょ", "ニョ", "nyo");
 
         WuShi n = new WuShi("ん", "ン", "nn");
 
