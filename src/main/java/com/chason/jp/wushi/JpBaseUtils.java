@@ -2,7 +2,6 @@ package com.chason.jp.wushi;
 
 import com.chason.jp.pojo.WuShi;
 import com.chason.jp.utils.CheckUtil;
-import com.sun.tools.jconsole.JConsoleContext;
 
 import java.util.*;
 
@@ -251,7 +250,7 @@ public class JpBaseUtils {
         WuShi to = new WuShi("と", "ト", "to");
 
         WuShi da = new WuShi("だ", "ダ", "da");
-        WuShi di = new WuShi("ぢ", "ヂ", "di");   // 但是读音是 ji 读音同 じ
+        WuShi ji = new WuShi("ぢ", "ヂ", "di");   // 但是读音是 ji 读音同 じ
         WuShi du = new WuShi("づ", "ヅ", "du");   // 读音也是 zi　读音同 ず
         WuShi de = new WuShi("で", "デ", "de");
         WuShi do_ = new WuShi("ど", "ド", "do");
@@ -329,10 +328,16 @@ public class JpBaseUtils {
         contains.add(to);
 
         contains.add(da);
-        contains.add(di);
+        contains.add(ji);
         contains.add(du);
         contains.add(de);
         contains.add(do_);
+
+        contains.add(na);
+        contains.add(ni);
+        contains.add(nu);
+        contains.add(ne);
+        contains.add(no);
 
         contains.add(ya);
         contains.add(yu);
@@ -355,6 +360,10 @@ public class JpBaseUtils {
         contains.add(qya);
         contains.add(qyu);
         contains.add(qyo);
+
+        contains.add(nya);
+        contains.add(nyu);
+        contains.add(nyo);
 
         contains.add(n);
     }
