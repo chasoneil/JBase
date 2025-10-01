@@ -31,7 +31,7 @@ public class JpWordsUtils {
         CheckUtil.checkInput(res);
         int f1 = Integer.parseInt(res);
 
-        System.out.println("请选择课程号(1-2),按回车结束。");
+        System.out.println("请选择课程号(1-4),按回车结束。");
         String cStr = scanner.next();
         CheckUtil.checkInput(cStr);
         int c1 = Integer.parseInt(cStr);
