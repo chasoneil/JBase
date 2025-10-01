@@ -263,7 +263,7 @@ public class JpBaseUtils {
         WuShi no = new WuShi("の", "ノ", "no");
 
         WuShi ya = new WuShi("や", "ヤ", "ya");
-        WuShi yu = new WuShi("ゆ", "ユ", "yu");
+        WuShi yu = new WuShi("ゆ", "ユ", "yu");       // 读音是 优
         WuShi yo = new WuShi("よ", "ヨ", "yo");
 
         // 拗音
