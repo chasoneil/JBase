@@ -267,6 +267,18 @@ public class JpBaseUtils {
         WuShi he = new WuShi("へ", "ヘ", "he");
         WuShi ho = new WuShi("ほ", "ホ", "ho");
 
+        WuShi ba = new WuShi("ば", "バ", "ba");
+        WuShi bi = new WuShi("び", "ビ", "bi");
+        WuShi bu = new WuShi("ぶ", "ブ", "bu");
+        WuShi be = new WuShi("べ", "ベ", "be");
+        WuShi bo = new WuShi("ぼ", "ボ", "bo");
+
+        WuShi pa = new WuShi("ぱ", "パ", "pa");
+        WuShi pi = new WuShi("ぴ", "ピ", "pi");
+        WuShi pu = new WuShi("ぷ", "プ", "pu");
+        WuShi pe = new WuShi("ぺ", "ペ", "pe");
+        WuShi po = new WuShi("ぽ", "ポ", "po");
+
         WuShi ya = new WuShi("や", "ヤ", "ya");
         WuShi yu = new WuShi("ゆ", "ユ", "yu");       // 读音是 优
         WuShi yo = new WuShi("よ", "ヨ", "yo");
@@ -298,6 +310,12 @@ public class JpBaseUtils {
         WuShi hya = new WuShi("ひゃ", "ヒャ", "hya");
         WuShi hyu = new WuShi("ひゅ", "ヒュ", "hyu");
         WuShi hyo = new WuShi("ひょ", "ヒョ", "hyo");
+        WuShi bya = new WuShi("びゃ", "ビャ", "bya");
+        WuShi byu = new WuShi("びゅ", "ビュ", "byu");
+        WuShi byo = new WuShi("びょ", "ビョ", "byo");
+        WuShi pya = new WuShi("ぴゃ", "ピャ", "pya");
+        WuShi pyu = new WuShi("ぴゅ", "ピュ", "pyu");
+        WuShi pyo = new WuShi("ぴょ", "ピョ", "pyo");
 
         WuShi n = new WuShi("ん", "ン", "nn");
 
@@ -355,6 +373,18 @@ public class JpBaseUtils {
         contains.add(he);
         contains.add(ho);
 
+        contains.add(ba);
+        contains.add(bi);
+        contains.add(bu);
+        contains.add(be);
+        contains.add(bo);
+
+        contains.add(pa);
+        contains.add(pi);
+        contains.add(pu);
+        contains.add(pe);
+        contains.add(po);
+
         contains.add(ya);
         contains.add(yu);
         contains.add(yo);
@@ -384,6 +414,12 @@ public class JpBaseUtils {
         contains.add(hya);
         contains.add(hyu);
         contains.add(hyo);
+        contains.add(bya);
+        contains.add(byu);
+        contains.add(byo);
+        contains.add(pya);
+        contains.add(pyu);
+        contains.add(pyo);
 
         contains.add(n);
     }
