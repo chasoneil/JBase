@@ -87,6 +87,7 @@ public class JpBaseUtils {
             correct++;
         } else {
             System.out.println("错误");
+            System.out.println("正确的答案是:" + w.getPian());
         }
     }
 
@@ -100,6 +101,7 @@ public class JpBaseUtils {
             correct++;
         } else {
             System.out.println("错误");
+            System.out.println("正确的答案是:" + w.getPing());
         }
     }
 
