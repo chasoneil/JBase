@@ -281,6 +281,18 @@ public class JpBaseUtils {
         WuShi pe = new WuShi("ぺ", "ペ", "pe");
         WuShi po = new WuShi("ぽ", "ポ", "po");
 
+        WuShi ma = new WuShi("ま", "マ", "ma");
+        WuShi mi = new WuShi("み", "ミ", "mi");
+        WuShi mu = new WuShi("む", "ム", "mu");
+        WuShi me = new WuShi("め", "メ", "me");
+        WuShi mo = new WuShi("も", "モ", "mo");
+
+        WuShi ra = new WuShi("ら", "ラ", "ra");
+        WuShi ri = new WuShi("り", "リ", "ri");
+        WuShi ru = new WuShi("る", "ル", "ru");
+        WuShi re = new WuShi("れ", "レ", "re");
+        WuShi ro = new WuShi("ろ", "ロ", "ro");
+
         WuShi ya = new WuShi("や", "ヤ", "ya");
         WuShi yu = new WuShi("ゆ", "ユ", "yu");       // 读音是 优
         WuShi yo = new WuShi("よ", "ヨ", "yo");
@@ -318,6 +330,14 @@ public class JpBaseUtils {
         WuShi pya = new WuShi("ぴゃ", "ピャ", "pya");
         WuShi pyu = new WuShi("ぴゅ", "ピュ", "pyu");
         WuShi pyo = new WuShi("ぴょ", "ピョ", "pyo");
+
+        WuShi mya = new WuShi("みゃ", "ミャ", "mya");
+        WuShi myu = new WuShi("みゅ", "ミュ", "myu");
+        WuShi myo = new WuShi("みょ", "ミョ", "myo");
+
+        WuShi rya = new WuShi("りゃ", "リャ", "rya");
+        WuShi ryu = new WuShi("りゅ", "リュ", "ryu");
+        WuShi ryo = new WuShi("りょ", "リョ", "ryo");
 
         WuShi n = new WuShi("ん", "ン", "nn");
 
@@ -387,6 +407,18 @@ public class JpBaseUtils {
         contains.add(pe);
         contains.add(po);
 
+        contains.add(ma);
+        contains.add(mi);
+        contains.add(mu);
+        contains.add(me);
+        contains.add(mo);
+
+        contains.add(ra);
+        contains.add(ri);
+        contains.add(ru);
+        contains.add(re);
+        contains.add(ro);
+
         contains.add(ya);
         contains.add(yu);
         contains.add(yo);
@@ -422,6 +454,14 @@ public class JpBaseUtils {
         contains.add(pya);
         contains.add(pyu);
         contains.add(pyo);
+
+        contains.add(mya);
+        contains.add(myu);
+        contains.add(myo);
+
+        contains.add(rya);
+        contains.add(ryu);
+        contains.add(ryo);
 
         contains.add(n);
     }
