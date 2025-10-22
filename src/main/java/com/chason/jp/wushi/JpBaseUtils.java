@@ -297,6 +297,11 @@ public class JpBaseUtils {
         WuShi yu = new WuShi("ゆ", "ユ", "yu");       // 读音是 优
         WuShi yo = new WuShi("よ", "ヨ", "yo");
 
+        WuShi wa = new WuShi("わ", "ワ", "wa");
+        WuShi wo = new WuShi("を", "ヲ", "o");
+
+        WuShi n = new WuShi("ん", "ン", "nn");
+
         // 拗音
         WuShi kya = new WuShi("きゃ", "キャ", "kya");
         WuShi kyu = new WuShi("きゅ", "キュ", "kyu");
@@ -338,8 +343,6 @@ public class JpBaseUtils {
         WuShi rya = new WuShi("りゃ", "リャ", "rya");
         WuShi ryu = new WuShi("りゅ", "リュ", "ryu");
         WuShi ryo = new WuShi("りょ", "リョ", "ryo");
-
-        WuShi n = new WuShi("ん", "ン", "nn");
 
         contains.add(a);
         contains.add(i);
@@ -423,6 +426,11 @@ public class JpBaseUtils {
         contains.add(yu);
         contains.add(yo);
 
+        contains.add(wa);
+        contains.add(wo);
+
+        contains.add(n);
+
         contains.add(kya);
         contains.add(kyu);
         contains.add(kyo);
@@ -462,7 +470,5 @@ public class JpBaseUtils {
         contains.add(rya);
         contains.add(ryu);
         contains.add(ryo);
-
-        contains.add(n);
     }
 }
