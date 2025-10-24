@@ -298,7 +298,7 @@ public class JpBaseUtils {
         WuShi yo = new WuShi("よ", "ヨ", "yo");
 
         WuShi wa = new WuShi("わ", "ワ", "wa");
-        WuShi wo = new WuShi("を", "ヲ", "o");
+        WuShi wo = new WuShi("を", "ヲ", "wo");       // 发音是 o
 
         WuShi n = new WuShi("ん", "ン", "nn");
 
