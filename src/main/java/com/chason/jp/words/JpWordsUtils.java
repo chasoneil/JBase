@@ -31,7 +31,7 @@ public class JpWordsUtils {
         CheckUtil.checkInput(res);
         int f1 = Integer.parseInt(res);
 
-        System.out.println("请选择课程号(1-4),按回车结束。");
+        System.out.println("请选择课程号,按回车结束。");
         String cStr = scanner.next();
         CheckUtil.checkInput(cStr);
         int c1 = Integer.parseInt(cStr);
@@ -71,7 +71,7 @@ public class JpWordsUtils {
     private static void doWuShiToMean() {
 
         int len = contains.size();
-        int rGroup = (int) (Math.random() * len);
+        int rGroup = (int) (Math.random() * len) + 3;
         int group = rGroup;
         int correct = 0;
         System.out.println("请根据单词的假名解释含义: ");
