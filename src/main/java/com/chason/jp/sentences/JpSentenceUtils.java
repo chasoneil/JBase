@@ -1,7 +1,6 @@
 package com.chason.jp.sentences;
 
 import com.chason.algorithm.utils.StringUtils;
-import com.chason.jp.pojo.Dialog;
 import com.chason.jp.pojo.JpSentence;
 import com.chason.jp.pojo.Single;
 
@@ -19,6 +18,8 @@ public class JpSentenceUtils {
     private static JpSentence jpSentence = new JpSentence();
 
     private static final String HOME_PATH = "./src/main/java/com/chason/jp/sentences";
+
+    private static String userInput = null;
 
     public static void main(String[] args) {
         start();
@@ -40,8 +41,29 @@ public class JpSentenceUtils {
         init(lessonNameInput);
         System.out.println("初始化完成，开始练习");
 
+        practice();
 
+    }
 
+    private static void practice() {
+
+        List<Single> singles = jpSentence.getSingles();
+        for (Single s : singles) {
+            System.out.println("练习:[" + s.getTitle() + "]");
+            List<String> sentences = s.getSentences();
+            System.out.println("请根据中文翻译成日语：");
+            for (String sen : sentences) {
+                System.out.println(sen.split("-")[0]);
+                userInput = sc.next();
+                // 将用户输入的所有句子中的空格去掉
+                userInput = userInput.replaceAll("\\p{Space}+", "");
+                if (sen.split("-")[1].equals(userInput)) {
+                    System.out.println("回答正确");
+                } else {
+                    System.out.println("回答错误,正确答案：" + sen.split("-")[1]);
+                }
+            }
+        }
     }
 
     private static Set<String> getLessons() {
@@ -73,68 +95,41 @@ public class JpSentenceUtils {
         }
     }
 
-    private static void printLesson(Set<String> lessons) {
-
-
-    }
-
     // 初始化该课程的所有数据
     private static void init(String lessonName) {
 
         String key = null;
-        int type = 0;
-        boolean ends = false;       // 对话结束标识
 
-        String filePath = HOME_PATH + lessonName + ".txt";
+        String filePath = HOME_PATH + File.separator +lessonName + ".txt";
         try {
             Path path = Paths.get(filePath);
             List<String> lines = Files.readAllLines(path);
             for (String line : lines) {
 
+                if (StringUtils.isEmpty(line)) {
+                    continue;
+                }
+
                 if (line.startsWith("T")) {
                     key = line.substring(2);
                     initSingle(key);
-                    initDialog(key);
-                    ends = true;
-                    continue;
-                }
-
-                if (line.startsWith("单句")) {
-                    type = 1;
-                    ends = true;
-                    continue;
-                }
-
-                if (line.startsWith("对话")) {
-                    type = 2;
-                    // 以对话开始，则没有结束
-                    ends = false;
-                    continue;
-                }
-
-                if (type == 1) {
-                    Single single = jpSentence.getSingle(key);
-                    if (single == null) {
-                        throw new RuntimeException("课程:" + key + "的单句练习不存在");
-                    }
-                    single.getSentences().add(line);
-                    continue;
-                }
-
-                if (type == 2 && !ends) {
-                    Dialog dialog = jpSentence.getDialog(key);
-                    if (dialog == null) {
-                        throw new RuntimeException("课程:" + key + "的对话练习不存在");
-                    }
-
-
 
                     continue;
                 }
 
+                if (line.startsWith("单句") || line.startsWith("对话")) {
+                    continue;
+                }
+
+                Single single = jpSentence.getSingle(key);
+                if (single == null) {
+                    throw new RuntimeException("课程:" + key + "的单句练习不存在");
+                }
+                single.getSentences().add(line);
             }
         } catch (IOException e) {
             System.err.println(e.getMessage());
+            System.exit(-1);
         }
     }
 
@@ -143,13 +138,6 @@ public class JpSentenceUtils {
         Single single = jpSentence.getSingle(key);
         if (single == null) {
             jpSentence.getSingles().add(new Single(key));
-        }
-    }
-
-    private static void initDialog(String key) {
-        Dialog dialog = jpSentence.getDialog(key);
-        if (dialog == null) {
-            jpSentence.getDialogs().add(new Dialog(key));
         }
     }
 }
