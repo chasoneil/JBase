@@ -25,9 +25,6 @@ public class JpSentenceUtils {
         start();
     }
 
-    /*
-        1. 扫描当前文件夹下所有可以选择的课程
-     */
     private static void start() {
         Set<String> lessons = getLessons();
 
@@ -35,19 +32,20 @@ public class JpSentenceUtils {
         for (String s: lessons) {
             System.out.println(s);
         }
-        String lessonNameInput = sc.next();
-        System.out.println("你选择的课程是:" + lessonNameInput);
+        userInput = sc.next();
+        System.out.println("你选择的课程是:" + userInput);
         System.out.println("初始化课程数据...");
-        init(lessonNameInput);
+        init(userInput);
         System.out.println("初始化完成，开始练习");
 
         practice();
-
     }
 
     private static void practice() {
 
         List<Single> singles = jpSentence.getSingles();
+        // 将list中的顺序随机打乱
+        Collections.shuffle(singles);
         for (Single s : singles) {
             System.out.println("练习:[" + s.getTitle() + "]");
             List<String> sentences = s.getSentences();
