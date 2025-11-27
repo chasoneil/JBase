@@ -10,23 +10,27 @@ public class Dialog {
 
     private String title;
 
-    // 对话是一组一组的
-    private List<List<String>> dialogs;
+    private List<String> content;
+
+    public Dialog(String title) {
+        this.title = title;
+        this.content = new ArrayList<>();
+    }
+
+    public Dialog (String title, List<String> content) {
+        this.title = title;
+        this.content = content;
+    }
 
     public String getTitle() {
         return title;
     }
 
-    public List<List<String>> getDialogs() {
-        return dialogs;
+    public List<String> getContent() {
+        return content;
     }
 
-    public void setDialogs(List<List<String>> dialogs) {
-        this.dialogs = dialogs;
-    }
-
-    public Dialog(String title) {
-        this.title = title;
-        this.dialogs = new ArrayList<>();
+    public void setContent(List<String> content) {
+        this.content = content;
     }
 }

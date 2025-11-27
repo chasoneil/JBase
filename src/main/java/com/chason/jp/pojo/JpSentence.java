@@ -17,23 +17,6 @@ public class JpSentence {
         return singles;
     }
 
-    public Single getSingle(String key) {
-        for (Single s: getSingles()) {
-            if (key.equals(s.getTitle())) {
-                return s;
-            }
-        }
-        return null;
-    }
-
-    public Dialog getDialog(String key) {
-        for (Dialog d: getDialogs()) {
-            if (key.equals(d.getTitle()))
-                return d;
-        }
-        return null;
-    }
-
     public void setSingles(List<Single> singles) {
         this.singles = singles;
     }
