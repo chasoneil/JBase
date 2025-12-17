@@ -71,7 +71,7 @@ public class JpSentenceUtils {
                 System.out.println(s.split("-")[0]);
                 userInput = sc.next();
                 // 将用户输入的所有句子中的空格去掉
-                userInput = userInput.replaceAll("\\p{Space}+", "");
+                userInput = userInput.replaceAll("\\s+", "");
                 if (s.split("-")[1].equals(userInput)) {
                     System.out.println("回答正确");
                 } else {
