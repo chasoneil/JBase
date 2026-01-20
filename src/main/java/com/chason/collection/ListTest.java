@@ -7,16 +7,12 @@ public class ListTest {
 
 
     public static void main(String[] args) {
-
         test();
-
     }
-
 
     private static void test() {
 
         List<String> mylist = new ArrayList<>();
-
         mylist.add("a");
         mylist.add("b");
         mylist.add("c");
