@@ -1,5 +1,10 @@
 package com.chason.jp.utils;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class FileUtil {
 
     private static final String WORD_PATH = "src/main/java/com/chason/jp/words/";
@@ -21,6 +26,19 @@ public class FileUtil {
             }
         }
         return -1;
+    }
+
+    public static List<File> getMp3Count(String dir) {
+
+        File floder = new File(dir);
+        if (!floder.exists() || !floder.isDirectory()) {
+            throw new RuntimeException("未找到音频文件");
+        }
+
+        File[] mp3s = floder.listFiles((path,name) -> name.toLowerCase().endsWith(".mp3"));
+        List<File> res = new ArrayList<>();
+        Collections.addAll(res, mp3s);
+        return res;
     }
 
 }
